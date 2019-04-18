@@ -1,0 +1,284 @@
+/* SMALL SCREEN */
+/* MOBILE SCREEN */
+
+@media (max-width:480px){
+    .travel-bg {
+        background-position: top left;
+    }
+
+    .widget-background {
+        /* padding-top: 90px; */
+        height: 118vh;
+    }
+
+    .widget-background.page-bg{
+        height:40vh;
+    }
+    .city-container {
+        position: relative;
+        width: 300px;
+        height: 225px;
+        overflow: hidden;
+        border-radius: 4px;
+        transition: all 0.5s ease;
+    }
+    
+    .route-location{
+        grid-template-columns:1fr;
+
+    }
+    .route-coverage {
+        grid-template-columns:1fr;
+    }
+
+    .travel-app{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .footer-links{
+        grid-template-columns: 1fr 1fr ;
+    }
+
+    .download-app{
+        grid-template-columns:1fr;
+
+    }
+    .top-route{
+        padding:15px;
+    }
+
+    .comment-wrap {
+        grid-template-columns: 1fr;
+    }
+
+    .amenities-list{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .operator-name {
+        font-size: 14px;
+        font-weight: 500;
+        color: #000;
+        margin: 0px;
+        line-height: 1.5;
+    }
+    .mobile-app img {
+        width: 100%;
+        text-align: center;
+    }
+
+    .padtp-150 {
+        padding-top:20px;
+    }
+
+    .mobile-wrapper{
+        padding:20px 0px;
+    }
+
+    .tab-content {
+        background-color: #fff;
+        margin-top: 10px;
+        padding: 0px;
+        min-height: 328px;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+    }
+
+    .app-widget{
+        margin-bottom:20px;
+    }
+
+    .btn-widget.btn-red{
+        width:100%;
+    }
+
+    .modify-search {
+        box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 4px;
+        background-color: #fff;
+        padding: 15px 20px;
+        position: relative;
+        bottom: -51px;
+        margin-bottom: 40px;
+        /* overflow: hidden; */
+        display: inline-block;
+    }
+
+    ul.stepper.horizontal .step .step-content{
+        top: 14px;
+       }
+   
+       ul.stepper.horizontal .step .step-title {
+            line-height: 54px;
+            height: 54px;
+           margin: 0;
+           padding: 0 35px 0 65px;
+           display: inline-block;
+           max-width: 100%;
+           white-space: nowrap;
+           overflow: hidden;
+           text-overflow: ellipsis;
+           flex-shrink: 0;
+       }
+   
+       ul.stepper.horizontal .step:not(:last-of-type)::after, ul.stepper.horizontal .step.active:not(:last-of-type)::after {
+           content: '';
+           position: static;
+           display: inline-block;
+           width: 100%;
+           height: 1px;
+           z-index: 999;
+           max-width: 100%;
+       }
+   
+       ul.stepper.horizontal::before {
+           box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+           background-color:#fff;
+       }
+       ul.stepper.horizontal .step:not(:last-of-type)::after, ul.stepper.horizontal .step.active:not(:last-of-type)::after {
+       content: '';
+       position: static;
+       display: inline-block;
+       width: 100%;
+       height: 1px;
+       z-index: 999;
+   }
+   
+   .step-content{
+       background-color: #fff;
+       /* box-shadow: 0px 0px 20px 0px #ddd; */
+     }
+     
+     
+     ul.stepper .step:not(:last-of-type)::after {
+         content: '';
+         position: absolute;
+         top: 52px;
+         left: 13.5px;
+         width: 1px;
+         height: 40%;
+         height: calc(100% - 52px);
+         background-color: rgb(228, 230, 233);
+         transition: height 400ms cubic-bezier(0.4, 0, 0.2, 1);
+     }
+   
+     ul.stepper.horizontal .step.active .step-title::before, ul.stepper.horizontal .step.done .step-title::before {
+         background-color: #e11d1d;
+     }
+     ul.stepper .step.active::before, ul.stepper .step.done::before {
+        background-color: #e11d1d;
+    }
+
+
+    ul.stepper.horizontal .step .step-content {
+        position: absolute;
+        height: 100%;
+        top: 84px;
+        display: block;
+        left: -100%;
+        width: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 20px 20px 76px 20px;
+        transition: left 400ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+
+
+}
+
+
+/* MEDIUM SCREEN */
+@media (max-width: 768px) {
+    .city-container {
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+
+/* END SMALLL SCREEN */
+
+/* MEDIUM SCREEN AND LARGE SCREEN */
+@media only screen and (min-width: 993px){
+    ul.stepper.horizontal .step .step-content{
+     top:115px;
+    }
+
+    ul.stepper.horizontal .step .step-title {
+        line-height: 84px;
+        height: 84px;
+        margin: 0;
+        padding: 0 35px 0 65px;
+        display: inline-block;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 0;
+    }
+
+    ul.stepper.horizontal .step:not(:last-of-type)::after, ul.stepper.horizontal .step.active:not(:last-of-type)::after {
+        content: '';
+        position: static;
+        display: inline-block;
+        width: 100%;
+        height: 1px;
+        z-index: 999;
+        max-width: 100%;
+    }
+
+    ul.stepper.horizontal::before {
+        box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+        background-color:#fff;
+    }
+    ul.stepper.horizontal .step:not(:last-of-type)::after, ul.stepper.horizontal .step.active:not(:last-of-type)::after {
+    content: '';
+    position: static;
+    display: inline-block;
+    width: 100%;
+    height: 1px;
+    z-index: 999;
+}
+
+.step-content{
+    background-color: #fff;
+    /* box-shadow: 0px 0px 20px 0px #ddd; */
+  }
+  
+  
+  ul.stepper .step:not(:last-of-type)::after {
+      content: '';
+      position: absolute;
+      top: 52px;
+      left: 13.5px;
+      width: 1px;
+      height: 40%;
+      height: calc(100% - 52px);
+      background-color: rgb(228, 230, 233);
+      transition: height 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ul.stepper.horizontal .step.active .step-title::before
+{
+      background-color: #f7931e;
+  }
+
+  ul.stepper.horizontal .step.done .step-title::before {
+    background-color: #21C17A;
+}
+
+
+  ul.stepper.horizontal .step .step-content .step-actions {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background-color: transparent;
+    flex-direction: row-reverse;
+}
+
+
+}

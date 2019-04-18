@@ -1,0 +1,1931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Safe Trip</title>
+
+
+  <!-- PAGE PLUGIN CSS -->
+  <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
+  <link href="assets/plugins/css/lightslider.css" rel="stylesheet"/>
+  <link href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" type="text/css" />
+  <link href="assets/plugins/css/nouislider.css" rel="stylesheet"/>
+
+
+  <!-- END PAGE PLUGIN -->
+
+  <!-- GLOBAL CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/responsive.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<!-- END GLOBAL CSS  -->
+</head>
+<body class="page-inner">
+    <div class="se-pre-con"></div>
+    <nav class="navbar nav-custom navbar-page  navbar-color-on-scroll sticky navbar-expand-lg" color-on-scroll="100">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="brand-logo"><img src="assets/img/safe-trip-logo.png"/></a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="index.html">Home </a></li>
+              <li><a href="#">About us </a></li>
+              <li><a href="#">Deals <span class="badge badge-new">NEW</span></a></li>
+              <li><a href="#">Services </a></li>
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="index.html">Home </a></li>
+                <li><a href="#">About us </a></li>
+                <li><a href="#">Deals <span class="badge badge-new">NEW</span></a></li>
+                <li><a href="#">Services </a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+    </nav>
+          
+    <div class="widget-background page-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col m12 s12">
+                    <div class="modify-search">
+                        <h5>Modify Search</h5>
+                        <div>
+                            <form method="POST" action="">
+                                <p>
+                                <label>
+                                    <input class="with-gap" name="group3" type="radio" checked />
+                                    <span>One Way</span>
+                                </label>
+                                <label>
+                                    <input class="with-gap" name="group3" type="radio"  />
+                                    <span>Return Trip</span>
+                                </label>
+                                </p>
+                                <div class="input-field col m2 s5">
+                                <input id="from_tags" type="text" class="validate">
+                                <label for="from_tags">From</label>
+                                </div>
+                                <div class="input-field col m1 s2">
+                                <div class="switch-btn">
+                                    <img src="assets/img/switch-route.svg"/>
+                                    </div>
+                                </div>
+                                <div class="input-field col m2 s5">
+                                    <input id="to_tags" type="text" class=" validate">
+                                    <label for="to_tags">To</label>
+                                    </div>
+                                    <div class="input-field col m2 s6">
+                                    <input id="depart_date" type="text" class="validate ">
+                                    <label for="depart_date">Departure</label>
+                                    </div>
+                                    <div class="input-field col m2 s6">
+                                        <input id="return_date" type="text" class="datepicker">
+                                        <label for="return_date">Return Date</label>
+                                    </div>
+                                    <div class="input-field col m1 s6">
+                                        <select>
+                                            <option value="1"> 1</option>
+                                            <option value="2"> 2</option>
+                                            <option value="3"> 3</option>
+                                        </select>
+                                        <label>Adult</label>
+                                    </div>
+                                    <div class="input-field col m2 s12">
+                                        <button class="btn btn-red waves-effect waves-light btn-large" type="submit" name="action">Search bus
+                                        </button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="container">
+          <div class="row">
+              <div class="col m12 s12">
+                  <div class="middle-banner">
+                      <img src="assets/img/middle-banner-ad.png" />
+                  </div>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="listing-container">
+        <div class="container">
+            <div class="row">
+                <div class="col m3 s12">
+                    <div class="sidebar sidebar-filter">
+                        <ul class="collapsible sidebar-collapse hide-on-small-only">
+                            <div class="sidebar-title">
+                                 <h4>Filter Search</h4>
+                            </div>
+                            <li>
+                                <div class="open-header">
+                                    <p>
+                                        Departure Time  
+                                    </p>
+                                    <span></span>
+                                </div>
+                                <div class="collapsible-body" style="display:block;">
+                                    <div class="pad-slider">
+                                        <div id="departure-slider"></div>
+                                    </div>   
+                                </div>
+                            </li>
+                            <li>
+                                <div class="open-header">
+                                    <p>
+                                        Price Range 
+                                    </p>
+                                </div>
+                                <div class="collapsible-body" style="display:block;">
+                                    <div class="pad-slider">
+                                        <div id="price-slider"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="open-header ">
+                                    <p>
+                                        Bus Type
+                                    </p>
+                                </div>
+                                <div class="collapsible-body" style="display:block;">
+                                    <p>
+                                    <label>
+                                        <input type="checkbox" class="filled-in" />
+                                        <span>AC Bus</span>
+                                    </label>
+                                    </p>
+                                    <p>
+                                    <label>
+                                        <input type="checkbox" class="filled-in" />
+                                        <span>Non AC Bus</span>
+                                    </label>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">
+                                    <p>
+                                        Bus Operator <i class="material-icons right">expand_less</i>
+                                    </p>
+                                </div>
+                                <div class="collapsible-body">
+                                    <p>
+                                    <label>
+                                        <input type="checkbox" class="filled-in" />
+                                        <span>AC Bus</span>
+                                    </label>
+                                    </p>
+                                    <p>
+                                    <label>
+                                        <input type="checkbox" class="filled-in" />
+                                        <span>Non AC Bus</span>
+                                    </label>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header">
+                                    <p>
+                                        Amenities <i class="material-icons right">expand_less</i>
+                                    </p>
+                                </div>
+                                <div class="collapsible-body">
+                                    <div class="scroll-opt">
+                                        <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>WATER</span>
+                                        </label>
+                                        </p>
+                                        <p>
+                                        <label>
+                                            <input type="checkbox" class="filled-in" />
+                                            <span>TV</span>
+                                        </label>
+                                        </p>
+                                        <p>
+                                            <label>
+                                                <input type="checkbox" class="filled-in" />
+                                                <span>CHARGING POINT</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <label>
+                                                <input type="checkbox" class="filled-in" />
+                                                <span>LEG ROOM</span>
+                                            </label>
+                                        </p>
+                                        <p>
+                                            <label>
+                                                <input type="checkbox" class="filled-in" />
+                                                <span>EXTRA LUGAGGE</span>
+                                            </label>
+                                        </p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="right-ad hide-on-small-only">
+                            <img src="assets/img/right-corner-ad.png"/>
+                        </div>
+                </div>
+                <div class="col m9 s12">
+                    <div class="search-list-container">
+                        <h5>Search Results</h5>
+                        <span>Showing 7 of 85</span>
+                    </div>
+                    <div class="row">
+                        <div class="col m12 s12">
+                            <div class="search-result">
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors God is Good Motors</p>
+                                            <p class="bus-feat operator-name" title="40 Seater, AC Toyota Hiace"> <img src="assets/img/svg/seat.svg"/>40 Seater, AC Toyota Hiace</p>
+                                            <p class="bus-feat"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name">9AM</p>
+                                            <span class="bus-feat">Depature</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="Lagos">Lagos</p>
+                                            <p class="bus-feat wrap-text" title="Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja">Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info dist">
+                                            <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                            <span class="bus-feat">23h 21m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="FCT Abuja">FCT Abuja</p>
+                                            <span class="bus-feat">Gwagalada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name op-amt">N 12,000</p>
+                                            <span class="bus-feat amt-slash">N 9500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info center">
+                                            <a href="select-seat.html" class="btn waves-effect waves-light btn-red">Select Seat</a>
+                                            <span class="bus-feat center"><i class="fa fa-car-seat"></i>13 Seats Available</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="item-features">
+                                        <div class="col m2 s6">
+                                            <div class="bus-feat">
+                                                <div class="operator-logo">
+                                                    <img src="assets/img/gigm.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col m8 s7 hide-on-small-only">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg good">4.3</span> Rating </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                       <li class="trip-deals">GET 10% OFF</li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col m2 s6">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="">
+                                                            <a href="javascript:;" id="show-all" class=""> 
+                                                            Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                            </a>
+                                                        </li> 
+                                                    </ul>
+                                                </div>
+                                            </div> -->
+                                    </div>
+
+                                    <div class="rating-container" style="display:none;">
+                                        <div class="rating-details">
+                                            <div class="rating-info">
+                                                <p class="five-star">
+                                                    <i class="material-icons">star</i> 
+                                                    4.0</p>
+                                                <p class="total-rating">40 Ratings</p>
+                                            </div>
+                                        </div>
+                                        <div class="rating-details">
+                                            <div class="rating-legend">
+                                                <div class="legend-wrap">
+                                                    <div class="key-leg">
+                                                        Excellent
+                                                    </div>
+                                                    <div class="key-leg key-leg-bg excellent">
+                                                    </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Good
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg good">
+                                                        </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                    <div class="key-leg">
+                                                        Average
+                                                    </div>
+                                                    <div class="key-leg key-leg-bg average">
+                                                    </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Below Average
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg b-average">
+                                                        </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                    <div class="key-leg">
+                                                        Poor
+                                                    </div>
+                                                    <div class="key-leg key-leg-bg poor">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="rating-comment">
+                                            <div class="comment-wrap">
+                                                <div class="comment-item">
+                                                    <div class="user-comment">
+                                                        <div class="col m4 s4">
+                                                            <div class="user-img">
+                                                                <img src="assets/img/girl1.jpg">
+                                                                <p class="comment-name" title="">Majekodunmi</p>
+                                                            </div>
+                                                        </div>
+                                                       <div class="col m8 s8">
+                                                            <div class="rating-category">
+                                                                <div class="key-leg good"><i class="material-icons">star</i>5.0</div>
+                                                            </div>
+                                                            <div class="comment-user">
+                                                                <p>Best comfort experience till now for this route.
+                                                                    </p>
+                                                            </div>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-item">
+                                                        <div class="user-comment">
+                                                            <div class="col m4 s4">
+                                                                <div class="user-img">
+                                                                    <img src="assets/img/girl1.jpg">
+                                                                    <p class="comment-name" title="">Bunmi</p>
+                                                                </div>
+                                                            </div>
+                                                           <div class="col m8 s8">
+                                                                <div class="rating-category">
+                                                                    <div class="key-leg average"><i class="material-icons">star</i>3.0</div>
+                                                                </div>
+                                                                <div class="comment-user">
+                                                                    <p>Best comfort experience till now for this route. Best comfort experience till now for this route.
+                                                                        </p>
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-item">
+                                                        <div class="user-comment">
+                                                            <div class="col m4 s4">
+                                                                <div class="user-img">
+                                                                    <img src="assets/img/girl1.jpg">
+                                                                    <p class="comment-name" title="">Paul</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col m8 s8">
+                                                                <div class="rating-category">
+                                                                    <div class="key-leg poor"><i class="material-icons">star</i>1.0</div>
+                                                                </div>
+                                                                <div class="comment-user">
+                                                                    <p>Best comfort experience till now for this route.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-item">
+                                                            <div class="user-comment">
+                                                                <div class="col m4 s4">
+                                                                    <div class="user-img">
+                                                                        <img src="assets/img/girl1.jpg">
+                                                                        <p class="comment-name" title="">Paul</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col m8 s8">
+                                                                    <div class="rating-category">
+                                                                        <div class="key-leg poor"><i class="material-icons">star</i>1.0</div>
+                                                                    </div>
+                                                                    <div class="comment-user">
+                                                                        <p>Best comfort experience till now for this route.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-item">
+                                                            <div class="user-comment">
+                                                                <div class="col m4 s4">
+                                                                    <div class="user-img">
+                                                                        <img src="assets/img/girl1.jpg">
+                                                                        <p class="comment-name" title="">Paul</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col m8 s8">
+                                                                    <div class="rating-category">
+                                                                        <div class="key-leg good"><i class="material-icons">star</i>4.0</div>
+                                                                    </div>
+                                                                    <div class="comment-user">
+                                                                        <p>Best comfort experience till now for this route.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                            <div class="comment-item">
+                                                                <div class="user-comment">
+                                                                    <div class="col m4 s4">
+                                                                        <div class="user-img">
+                                                                            <img src="assets/img/girl1.jpg">
+                                                                            <p class="comment-name" title="">Paul</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col m8 s8">
+                                                                        <div class="rating-category">
+                                                                            <div class="key-leg average"><i class="material-icons">star</i>3.0</div>
+                                                                        </div>
+                                                                        <div class="comment-user">
+                                                                            <p>Best comfort experience till now for this route.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="amenities-container" style="display:none;">
+                                        <div class="amenities-list">
+                                            <div class="amenities-item">
+                                                <div class="amen-img">
+                                                    <img src="assets/img/svg/wifi-signal.svg"/>
+                                                    <span>Free Wifi</span>
+                                                </div>
+                                            </div>
+                                            <div class="amenities-item">
+                                                <div class="amen-img">
+                                                    <img src="assets/img/svg/air-conditioner.svg"/>
+                                                    <span>AC</span>
+                                                </div>
+                                            </div>
+                                            <div class="amenities-item">
+                                                <div class="amen-img">
+                                                    <img src="assets/img/svg/wifi-signal.svg"/>
+                                                    <span>Free Wifi</span>
+                                                </div>
+                                            </div>
+                                            <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/wifi-signal.svg"/>
+                                                        <span>Free Wifi</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/air-conditioner.svg"/>
+                                                        <span>AC</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/wifi-signal.svg"/>
+                                                        <span>Free Wifi</span>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="fare-rule-container" style="display:none;">
+                                        <div class="rule-item">
+                                            <p>
+                                                * Cancellation charges will be applicable on total ticket value </p>
+                                            <p>
+                                             * Refundable amount is calculated based on scheduled bus departure time from the first boarding time. 
+        
+                                            </p>
+                                            <p>
+                                                * Partial cancellation is not allowed for this ticket. Ticket cannot be cancelled after bus departure time 
+        
+                                            </p>
+                                            <p>
+                                                 * Ticket cannot be cancelled after scehduled bus departure time from the first boarding point.</p>
+        
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                        </div>
+
+                        <div class="col m12 s12">
+                                <div class="search-result">
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="GUO Transport">GUO Transport</p>
+                                                <p class="bus-feat">AC Toyota Hiace</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name">9AM</p>
+                                                <span class="bus-feat">Depature</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="Gombe">Adamawa</p>
+                                                <p class="bus-feat wrap-text" title="Adamawa">Adamawa</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info dist">
+                                                <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                                <span class="bus-feat">23h 21m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="FCT Abuja">Sabon Gari</p>
+                                                <span class="bus-feat">Sabon Gari</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name op-amt">N 16,000</p>
+                                                <span class="bus-feat amt-slash">N 14500</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <a href="select-seat.html" class="btn waves-effect waves-light btn-red">Select Seat</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="item-features">
+                                            <div class="col m2 s6">
+                                                <div class="bus-feat">
+                                                    <div class="operator-logo">
+                                                        <img src="assets/img/guo-transport.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col m8 s7 hide-on-small-only">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                           <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg good">4.3</span> Rating </a></li> 
+                                                           <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                           <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                           <li class="trip-deals">GET 20% OFF</li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col m2 s6">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                           <li class="">
+                                                                <a href="javascript:;" id="show-all" class=""> 
+                                                                Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                                </a>
+                                                            </li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                        </div>
+    
+                                    </div>
+                                   
+                            </div>
+
+                        <div class="col m12 s12">
+                            <div class="search-result">
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors God is Good Motors</p>
+                                            <p class="bus-feat">AC Toyota Hiace</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name">9AM</p>
+                                            <span class="bus-feat">Depature</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="Lagos">Lagos</p>
+                                            <p class="bus-feat wrap-text" title="Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja">Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info dist">
+                                            <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                            <span class="bus-feat">23h 21m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="FCT Abuja">FCT Abuja</p>
+                                            <span class="bus-feat">Gwagalada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name op-amt">N 12,000</p>
+                                            <span class="bus-feat amt-slash">N 9500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <a href="select-seat.html" class="btn btn-red">Select Seat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="item-features">
+                                        <div class="col m2 s6">
+                                            <div class="bus-feat">
+                                                <div class="operator-logo">
+                                                    <img src="assets/img/gigm.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col m8 s7 hide-on-small-only">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg average">2.4</span> Rating </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                       <li class="trip-deals">GET 10% OFF</li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col m2 s6">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="">
+                                                            <a href="javascript:;" id="show-all" class=""> 
+                                                            Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                            </a>
+                                                        </li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                   
+                                </div>
+                               
+                        </div>
+
+                        <div class="col m12 s12">
+                                <div class="search-result">
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors God is Good Motors</p>
+                                                <p class="bus-feat">AC Toyota Hiace</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name">9AM</p>
+                                                <span class="bus-feat">Depature</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="Lagos">Lagos</p>
+                                                <p class="bus-feat wrap-text" title="Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja">Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info dist">
+                                                <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                                <span class="bus-feat">23h 21m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="FCT Abuja">FCT Abuja</p>
+                                                <span class="bus-feat">Gwagalada</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name op-amt">N 12,000</p>
+                                                <span class="bus-feat amt-slash">N 9500</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <a href="select-seat.html" class="btn btn-red">Select Seat</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="item-features">
+                                            <div class="col m2 s6">
+                                                <div class="bus-feat">
+                                                    <div class="operator-logo">
+                                                        <img src="assets/img/gigm.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col m8 s7 hide-on-small-only">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                           <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg average">2.5</span> Rating </a></li> 
+                                                           <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                           <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                           <!-- <li class="trip-deals">GET 10% OFF</li>  -->
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col m2 s6">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                           <li class="">
+                                                                <a href="javascript:;" id="show-all" class=""> 
+                                                                Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                                </a>
+                                                            </li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                   
+                        </div>
+
+                        <div class="col m12 s12">
+                                <div class="search-result">
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors God is Good Motors</p>
+                                                <p class="bus-feat">AC Toyota Hiace</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name">9AM</p>
+                                                <span class="bus-feat">Depature</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="Lagos">Lagos</p>
+                                                <p class="bus-feat wrap-text" title="Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja">Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info dist">
+                                                <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                                <span class="bus-feat">23h 21m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="FCT Abuja">FCT Abuja</p>
+                                                <span class="bus-feat">Gwagalada</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name op-amt">N 12,000</p>
+                                                <span class="bus-feat amt-slash">N 9500</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <a href="select-seat.html" class="btn waves-effect waves-light btn-red">Select Seat</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="item-features">
+                                            <div class="col m2 s6">
+                                                <div class="bus-feat">
+                                                    <div class="operator-logo">
+                                                        <img src="assets/img/gigm.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col m8 s7 hide-on-small-only">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                            <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg good">4.3</span> Rating </a></li> 
+                                                            <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                            <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                            <li class="trip-deals">GET 10% OFF</li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col m2 s6">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                            <li class="">
+                                                                <a href="javascript:;" id="show-all" class=""> 
+                                                                Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                                </a>
+                                                            </li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    </div>
+                                    
+                        </div>
+
+                        <div class="col m12 s12">
+                            <div class="search-result">
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="Peace Mass Transit">Peace Mass Transit</p>
+                                            <p class="bus-feat">Non AC Toyota Hiace</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name">9AM</p>
+                                            <span class="bus-feat">Depature</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="Lagos">Asaba</p>
+                                            <p class="bus-feat wrap-text" title="Asaba">Asaba</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info dist">
+                                            <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                            <span class="bus-feat">23h 21m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="Uyo">Uyo</p>
+                                            <span class="bus-feat">Uyo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name op-amt">N 12,000</p>
+                                            <span class="bus-feat amt-slash">N 9500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <a href="select-seat.html" class="btn btn-red">Select Seat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="item-features">
+                                        <div class="col m2 s6">
+                                            <div class="bus-feat">
+                                                <div class="operator-logo">
+                                                    <img src="assets/img/pmt.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col m8 s7 hide-on-small-only">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg good">4.3</span> Rating </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                       <li class="trip-deals">GET 10% OFF</li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col m2 s6">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="">
+                                                            <a href="javascript:;" id="show-all" class=""> 
+                                                            Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                            </a>
+                                                        </li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                    </div>
+                                </div>
+                               
+                        </div>
+                        <div class="col m12 s12">
+                                <div class="search-result">
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors God is Good Motors</p>
+                                                <p class="bus-feat">AC Toyota Hiace</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name">9AM</p>
+                                                <span class="bus-feat">Depature</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="Lagos">Lagos</p>
+                                                <p class="bus-feat wrap-text" title="Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja">Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m1 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info dist">
+                                                <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                                <span class="bus-feat">23h 21m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s4">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name" title="FCT Abuja">FCT Abuja</p>
+                                                <span class="bus-feat">Gwagalada</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <p class="operator-name op-amt">N 12,000</p>
+                                                <span class="bus-feat amt-slash">N 9500</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col m2 s12">
+                                        <div class="search-details">
+                                            <div class="operator-info">
+                                                <a href="select-seat.html" class="btn btn-red">Select Seat</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="item-features">
+                                            <div class="col m2 s6">
+                                                <div class="bus-feat">
+                                                    <div class="operator-logo">
+                                                        <img src="assets/img/gigm.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col m8 s7 hide-on-small-only">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                           <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg good">4.3</span> Rating </a></li> 
+                                                           <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                           <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                           <li class="trip-deals">GET 10% OFF</li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="col m2 s6">
+                                                    <div class="bus-property">
+                                                        <ul class="bus-property-item">
+                                                           <li class="">
+                                                                <a href="javascript:;" id="show-all" class=""> 
+                                                                Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                                </a>
+                                                            </li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                        </div>
+    
+                                        <div class="rating-container" style="display:none;">
+                                            <div class="rating-details">
+                                                <div class="rating-info">
+                                                    <p class="five-star">
+                                                        <i class="material-icons">star</i> 
+                                                        4.0</p>
+                                                    <p class="total-rating">40 Ratings</p>
+                                                </div>
+                                            </div>
+                                            <div class="rating-details">
+                                                <div class="rating-legend">
+                                                    <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Excellent
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg excellent">
+                                                        </div>
+                                                    </div>
+                                                    <div class="legend-wrap">
+                                                            <div class="key-leg">
+                                                                Good
+                                                            </div>
+                                                            <div class="key-leg key-leg-bg good">
+                                                            </div>
+                                                    </div>
+                                                    <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Average
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg average">
+                                                        </div>
+                                                    </div>
+                                                    <div class="legend-wrap">
+                                                            <div class="key-leg">
+                                                                Below Average
+                                                            </div>
+                                                            <div class="key-leg key-leg-bg b-average">
+                                                            </div>
+                                                    </div>
+                                                    <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Poor
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg poor">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="rating-comment">
+                                                <div class="comment-wrap">
+                                                    <div class="comment-item">
+                                                        <div class="user-comment">
+                                                            <div class="col m4 s4">
+                                                                <div class="user-img">
+                                                                    <img src="assets/img/girl1.jpg">
+                                                                    <p class="comment-name" title="">Majekodunmi</p>
+                                                                </div>
+                                                            </div>
+                                                           <div class="col m8 s8">
+                                                                <div class="rating-category">
+                                                                    <div class="key-leg good"><i class="material-icons">star</i>5.0</div>
+                                                                </div>
+                                                                <div class="comment-user">
+                                                                    <p>Best comfort experience till now for this route.
+                                                                        </p>
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-item">
+                                                            <div class="user-comment">
+                                                                <div class="col m4 s4">
+                                                                    <div class="user-img">
+                                                                        <img src="assets/img/girl1.jpg">
+                                                                        <p class="comment-name" title="">Bunmi</p>
+                                                                    </div>
+                                                                </div>
+                                                               <div class="col m8 s8">
+                                                                    <div class="rating-category">
+                                                                        <div class="key-leg average"><i class="material-icons">star</i>3.0</div>
+                                                                    </div>
+                                                                    <div class="comment-user">
+                                                                        <p>Best comfort experience till now for this route. Best comfort experience till now for this route.
+                                                                            </p>
+                                                                    </div>
+                                                               </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-item">
+                                                            <div class="user-comment">
+                                                                <div class="col m4 s4">
+                                                                    <div class="user-img">
+                                                                        <img src="assets/img/girl1.jpg">
+                                                                        <p class="comment-name" title="">Paul</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col m8 s8">
+                                                                    <div class="rating-category">
+                                                                        <div class="key-leg poor"><i class="material-icons">star</i>1.0</div>
+                                                                    </div>
+                                                                    <div class="comment-user">
+                                                                        <p>Best comfort experience till now for this route.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-item">
+                                                                <div class="user-comment">
+                                                                    <div class="col m4 s4">
+                                                                        <div class="user-img">
+                                                                            <img src="assets/img/girl1.jpg">
+                                                                            <p class="comment-name" title="">Paul</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col m8 s8">
+                                                                        <div class="rating-category">
+                                                                            <div class="key-leg poor"><i class="material-icons">star</i>1.0</div>
+                                                                        </div>
+                                                                        <div class="comment-user">
+                                                                            <p>Best comfort experience till now for this route.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="comment-item">
+                                                                <div class="user-comment">
+                                                                    <div class="col m4 s4">
+                                                                        <div class="user-img">
+                                                                            <img src="assets/img/girl1.jpg">
+                                                                            <p class="comment-name" title="">Paul</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col m8 s8">
+                                                                        <div class="rating-category">
+                                                                            <div class="key-leg good"><i class="material-icons">star</i>4.0</div>
+                                                                        </div>
+                                                                        <div class="comment-user">
+                                                                            <p>Best comfort experience till now for this route.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                                <div class="comment-item">
+                                                                    <div class="user-comment">
+                                                                        <div class="col m4 s4">
+                                                                            <div class="user-img">
+                                                                                <img src="assets/img/girl1.jpg">
+                                                                                <p class="comment-name" title="">Paul</p>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="col m8 s8">
+                                                                            <div class="rating-category">
+                                                                                <div class="key-leg average"><i class="material-icons">star</i>3.0</div>
+                                                                            </div>
+                                                                            <div class="comment-user">
+                                                                                <p>Best comfort experience till now for this route.
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+    
+                                        <div class="amenities-container" style="display:none;">
+                                            <div class="amenities-list">
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/wifi-signal.svg"/>
+                                                        <span>Free Wifi</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/air-conditioner.svg"/>
+                                                        <span>AC</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/wifi-signal.svg"/>
+                                                        <span>Free Wifi</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                        <div class="amen-img">
+                                                            <img src="assets/img/svg/wifi-signal.svg"/>
+                                                            <span>Free Wifi</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="amenities-item">
+                                                        <div class="amen-img">
+                                                            <img src="assets/img/svg/air-conditioner.svg"/>
+                                                            <span>AC</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="amenities-item">
+                                                        <div class="amen-img">
+                                                            <img src="assets/img/svg/wifi-signal.svg"/>
+                                                            <span>Free Wifi</span>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                        <div class="fare-rule-container" style="display:none;">
+                                            <div class="rule-item">
+                                                <p>
+                                                    * Cancellation charges will be applicable on total ticket value </p>
+                                                <p>
+                                                 * Refundable amount is calculated based on scheduled bus departure time from the first boarding time. 
+            
+                                                </p>
+                                                <p>
+                                                    * Partial cancellation is not allowed for this ticket. Ticket cannot be cancelled after bus departure time 
+            
+                                                </p>
+                                                <p>
+                                                     * Ticket cannot be cancelled after scehduled bus departure time from the first boarding point.</p>
+            
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                        </div>
+
+                        <div class="col m12 s12">
+                            <div class="search-result">
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors God is Good Motors</p>
+                                            <p class="bus-feat">AC Toyota Hiace</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name">9AM</p>
+                                            <span class="bus-feat">Depature</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="Lagos">Lagos</p>
+                                            <p class="bus-feat wrap-text" title="Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja">Iyana-Ipaja, Iyana-Ipaja, Iyana-Ipaja</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m1 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info dist">
+                                            <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                            <span class="bus-feat">23h 21m</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s4">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name" title="FCT Abuja">FCT Abuja</p>
+                                            <span class="bus-feat">Gwagalada</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <p class="operator-name op-amt">N 12,000</p>
+                                            <span class="bus-feat amt-slash">N 9500</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col m2 s12">
+                                    <div class="search-details">
+                                        <div class="operator-info">
+                                            <a href="select-seat.html" class="btn btn-red">Select Seat</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="item-features">
+                                        <div class="col m2 s6">
+                                            <div class="bus-feat">
+                                                <div class="operator-logo">
+                                                    <img src="assets/img/gigm.png">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col m8 s7 hide-on-small-only">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="rating-category"><a href="javascript:;" id="show-rating" class=""><span class="key-leg poor">1.3</span> Rating </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-rule" class="">Fare Rule </a></li> 
+                                                       <li class=""><a href="javascript:;" id="show-amenities" class="">Amenities</a></li> 
+                                                       <!-- <li class="trip-deals">GET 10% OFF</li>  -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col m2 s6">
+                                                <div class="bus-property">
+                                                    <ul class="bus-property-item">
+                                                       <li class="">
+                                                            <a href="javascript:;" id="show-all" class=""> 
+                                                            Bus Details <i class="material-icons" style="vertical-align: middle;">expand_more</i> 
+                                                            </a>
+                                                        </li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    <div class="rating-container" style="display:none;">
+                                        <div class="rating-details">
+                                            <div class="rating-info">
+                                                <p class="five-star">
+                                                    <i class="material-icons">star</i> 
+                                                    4.0</p>
+                                                <p class="total-rating">40 Ratings</p>
+                                            </div>
+                                        </div>
+                                        <div class="rating-details">
+                                            <div class="rating-legend">
+                                                <div class="legend-wrap">
+                                                    <div class="key-leg">
+                                                        Excellent
+                                                    </div>
+                                                    <div class="key-leg key-leg-bg excellent">
+                                                    </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Good
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg good">
+                                                        </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                    <div class="key-leg">
+                                                        Average
+                                                    </div>
+                                                    <div class="key-leg key-leg-bg average">
+                                                    </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                        <div class="key-leg">
+                                                            Below Average
+                                                        </div>
+                                                        <div class="key-leg key-leg-bg b-average">
+                                                        </div>
+                                                </div>
+                                                <div class="legend-wrap">
+                                                    <div class="key-leg">
+                                                        Poor
+                                                    </div>
+                                                    <div class="key-leg key-leg-bg poor">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div class="rating-comment">
+                                            <div class="comment-wrap">
+                                                <div class="comment-item">
+                                                    <div class="user-comment">
+                                                        <div class="col m4 s4">
+                                                            <div class="user-img">
+                                                                <img src="assets/img/girl1.jpg">
+                                                                <p class="comment-name" title="">Majekodunmi</p>
+                                                            </div>
+                                                        </div>
+                                                       <div class="col m8 s8">
+                                                            <div class="rating-category">
+                                                                <div class="key-leg good"><i class="material-icons">star</i>5.0</div>
+                                                            </div>
+                                                            <div class="comment-user">
+                                                                <p>Best comfort experience till now for this route.
+                                                                    </p>
+                                                            </div>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-item">
+                                                        <div class="user-comment">
+                                                            <div class="col m4 s4">
+                                                                <div class="user-img">
+                                                                    <img src="assets/img/girl1.jpg">
+                                                                    <p class="comment-name" title="">Bunmi</p>
+                                                                </div>
+                                                            </div>
+                                                           <div class="col m8 s8">
+                                                                <div class="rating-category">
+                                                                    <div class="key-leg average"><i class="material-icons">star</i>3.0</div>
+                                                                </div>
+                                                                <div class="comment-user">
+                                                                    <p>Best comfort experience till now for this route. Best comfort experience till now for this route.
+                                                                        </p>
+                                                                </div>
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-item">
+                                                        <div class="user-comment">
+                                                            <div class="col m4 s4">
+                                                                <div class="user-img">
+                                                                    <img src="assets/img/girl1.jpg">
+                                                                    <p class="comment-name" title="">Paul</p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col m8 s8">
+                                                                <div class="rating-category">
+                                                                    <div class="key-leg poor"><i class="material-icons">star</i>1.0</div>
+                                                                </div>
+                                                                <div class="comment-user">
+                                                                    <p>Best comfort experience till now for this route.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="comment-item">
+                                                            <div class="user-comment">
+                                                                <div class="col m4 s4">
+                                                                    <div class="user-img">
+                                                                        <img src="assets/img/girl1.jpg">
+                                                                        <p class="comment-name" title="">Paul</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col m8 s8">
+                                                                    <div class="rating-category">
+                                                                        <div class="key-leg poor"><i class="material-icons">star</i>1.0</div>
+                                                                    </div>
+                                                                    <div class="comment-user">
+                                                                        <p>Best comfort experience till now for this route.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="comment-item">
+                                                            <div class="user-comment">
+                                                                <div class="col m4 s4">
+                                                                    <div class="user-img">
+                                                                        <img src="assets/img/girl1.jpg">
+                                                                        <p class="comment-name" title="">Paul</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col m8 s8">
+                                                                    <div class="rating-category">
+                                                                        <div class="key-leg good"><i class="material-icons">star</i>4.0</div>
+                                                                    </div>
+                                                                    <div class="comment-user">
+                                                                        <p>Best comfort experience till now for this route.
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                            <div class="comment-item">
+                                                                <div class="user-comment">
+                                                                    <div class="col m4 s4">
+                                                                        <div class="user-img">
+                                                                            <img src="assets/img/girl1.jpg">
+                                                                            <p class="comment-name" title="">Paul</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col m8 s8">
+                                                                        <div class="rating-category">
+                                                                            <div class="key-leg average"><i class="material-icons">star</i>3.0</div>
+                                                                        </div>
+                                                                        <div class="comment-user">
+                                                                            <p>Best comfort experience till now for this route.
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="amenities-container" style="display:none;">
+                                        <div class="amenities-list">
+                                            <div class="amenities-item">
+                                                <div class="amen-img">
+                                                    <img src="assets/img/svg/wifi-signal.svg"/>
+                                                    <span>Free Wifi</span>
+                                                </div>
+                                            </div>
+                                            <div class="amenities-item">
+                                                <div class="amen-img">
+                                                    <img src="assets/img/svg/air-conditioner.svg"/>
+                                                    <span>AC</span>
+                                                </div>
+                                            </div>
+                                            <div class="amenities-item">
+                                                <div class="amen-img">
+                                                    <img src="assets/img/svg/wifi-signal.svg"/>
+                                                    <span>Free Wifi</span>
+                                                </div>
+                                            </div>
+                                            <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/wifi-signal.svg"/>
+                                                        <span>Free Wifi</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/air-conditioner.svg"/>
+                                                        <span>AC</span>
+                                                    </div>
+                                                </div>
+                                                <div class="amenities-item">
+                                                    <div class="amen-img">
+                                                        <img src="assets/img/svg/wifi-signal.svg"/>
+                                                        <span>Free Wifi</span>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="fare-rule-container" style="display:none;">
+                                        <div class="rule-item">
+                                            <p>
+                                                * Cancellation charges will be applicable on total ticket value </p>
+                                            <p>
+                                             * Refundable amount is calculated based on scheduled bus departure time from the first boarding time. 
+        
+                                            </p>
+                                            <p>
+                                                * Partial cancellation is not allowed for this ticket. Ticket cannot be cancelled after bus departure time 
+        
+                                            </p>
+                                            <p>
+                                                 * Ticket cannot be cancelled after scehduled bus departure time from the first boarding point.</p>
+        
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col m2 s12">
+                    <div class="right-ad">
+                        <img src="assets/img/right-corner-ad.png"/>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+          <div class="row">
+              <div class="col m12 s12">
+                  <div class="middle-banner">
+                      <img src="assets/img/middle-banner-ad.png" />
+                  </div>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="partners">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ul class="partner-logo" id="partner-logo">
+            <li>
+                <img src="assets/img/gigm.png"/>
+            </li>
+            <li>
+                <img src="assets/img/guo-transport.png"/>
+            </li>
+            <li>
+                <img src="assets/img/pmt.png"/>
+            </li>
+            <li>
+                <img src="assets/img/gigm.png"/>
+            </li>
+            <li>
+                <img src="assets/img/guo-transport.png"/>
+                </li>
+                <li>
+                <img src="assets/img/pmt.png"/>
+                </li>
+                <li>
+                <img src="assets/img/gigm.png"/>
+                </li>
+            
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+    <footer class="footer" data-background-color="black">
+    <div class="container">
+        <div class="row">
+        <div class="col m3 s12">
+            <div class="footer-logo">
+            <img src="assets/img/CyBus.png"/>
+            <p class="section-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                A quae id nam iste, nulla incidunt ab. </p>
+            </div>
+        </div>
+        <div class="col m9 s12">
+            <div class="footer-links">
+            <div class="footer-link-item">
+                <h5>About</h5>
+                <ul class="">
+                <li class><a href="">About us</a></li>
+                <li class><a href="">Services</a></li>
+                <li class><a href="">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-item">
+                <h5>Services</h5>
+                <ul class="">
+                <li class><a href="">Charter</a></li>
+                <li class><a href="">Cargo</a></li>
+                <li class><a href="">Camp Direct</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-item">
+                <h5>Customer Service</h5>
+                <ul class="">
+                <li class><a href="">How it works</a></li>
+                <li class><a href="">FAQs</a></li>
+                <li class><a href="">Report Missing item</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-item">
+                <h5>Newsletter</h5>
+                <div class="subcribe-form">
+                    <form class="form-sub-custom">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email Address">
+                    </div>
+                    <button class="btn btn-red waves-effect waves-light" type="submit" style="width:100%;">Suscribe</button>
+                    </form>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+  <!-- PAGE PLUGIN JS -->
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="assets/plugins/js/mapdata.js"></script>
+  <script src="assets/plugins/js/countrymap.js"></script>
+  <script src="assets/plugins/js/lightslider.js" type="text/javascript"></script>
+  <script src="assets/plugins/js/nouislider.js" type="text/javascript"></script>
+
+  <!-- END PAGE PLUGIN JS -->
+
+  <!-- GLOBAL JS -->
+  <script src="assets/js/materialize.js"></script>
+  <script src="assets/js/init.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  
+  
+  
+<script>
+   $(window).scroll(function(){
+    var sticky = $('.sticky'),
+        // main_logo = $('.main_logo'),
+        // white_logo = $('.white_logo'),
+        scroll = $(window).scrollTop();
+
+    if (scroll >= 100) { 
+      sticky.addClass('fixed');
+    //   main_logo.show();
+    //   white_logo.hide();
+
+    }
+     
+    
+    else {
+      sticky.removeClass('fixed');
+    //   main_logo.hide();
+    //   white_logo.show();
+
+    }
+    
+    });
+
+    $(document).ready(function(){
+    $('.tabs').tabs();
+  });
+
+ $(document).ready(function(){
+    $('select').formSelect();
+  });
+
+  $(document).ready(function(){
+    $('.collapsible').collapsible();
+  });
+        
+        
+
+  $('.home-ad-widget').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  autoplay:true,
+  accessibility:false,
+  arrows:false,
+  cssEase: 'linear'
+});
+
+//paste this code under the head tag or in a separate js file.
+	// Wait for window load
+	$(window).load(function() {
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+    });
+    
+
+   
+
+    // DEPATURE TIME RANGE
+
+    var nonLinearSlider  = document.getElementById('departure-slider');
+    noUiSlider.create(nonLinearSlider, {
+        start: [3, 8],
+        // tooltips: [false, wNumb({decimals: 1}), true],
+        tooltips: true,
+        connect: true,
+        range: {
+            'min': 1,
+            'max': 12
+        }
+    });
+   
+    // Display the slider value and how far the handle moved
+    // from the left edge of the slider.
+
+
+
+
+
+ // PRICE RANGE
+
+    var nonLinearSlider  = document.getElementById('price-slider');
+    noUiSlider.create(nonLinearSlider, {
+        start: [150, 400],
+        tooltips: true,
+        connect: true,
+        range: {
+            'min': 100,
+            'max': 500
+        }
+    });
+
+
+$(document).ready(function(){
+    $('#show-rating').click(function() {
+      $('.rating-container').toggle("slide");
+      $('.amenities-container').hide("slide");
+      $('.fare-rule-container').hide("slide");
+    });
+
+    $('#show-amenities').click(function() {
+    $('.amenities-container').toggle("slide");
+    $('.rating-container').hide("slide");
+    $('.fare-rule-container').hide("slide");
+    });
+
+    $('#show-rule').click(function() {
+    $('.fare-rule-container').toggle("slide");
+    $('.rating-container').hide("slide");
+    $('.amenities-container').hide("slide");
+    });
+
+    // $('#show-all').click(function() {
+    //   $('.rating-container').toggle("slide");
+    //   $('.amenities-container').toggle("slide");
+    //   $('.fare-rule-container').toggle("slide");
+    // });
+
+});
+
+</script>
+</body>
+</html>

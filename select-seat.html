@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Safe Trip</title>
+
+
+  <!-- PAGE PLUGIN CSS -->
+  <!-- <link href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"> -->
+  <link href="assets/plugins/css/mstepper.css" type="text/css" rel="stylesheet ">
+  <link href="assets/plugins/css/lightslider.css" rel="stylesheet"/>
+  <link href="assets/plugins/css/jquery.seat-charts.css" type="text/css" rel="stylesheet">
+
+
+
+  <!-- END PAGE PLUGIN -->
+
+  <!-- GLOBAL CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link href="assets/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="assets/css/responsive.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<!-- END GLOBAL CSS  -->
+</head>
+<body class="page-inner">
+    <div class="se-pre-con"></div>
+    <nav class="navbar nav-custom navbar-page  navbar-color-on-scroll sticky navbar-expand-lg" color-on-scroll="100">
+          <div class="nav-wrapper container">
+            <a id="logo-container" href="index.html" class="brand-logo">Safe Trip</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="index.html">Home </a></li>
+              <li><a href="#">About us </a></li>
+              <li><a href="#">Deals</a></li>
+              <li><a href="#">Services </a></li>
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <ul id="nav-mobile" class="sidenav">
+                <li><a href="index.html">Home </a></li>
+                <li><a href="#">About us </a></li>
+                <li><a href="#">Deals</a></li>
+                <li><a href="#">Services </a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          </div>
+    </nav>
+          
+    <div class="page-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col m12 s12">
+                    <div class="page-bg-container">
+                        <h5>Continue Booking</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="listing-container">
+        <div class="container">
+            <div class="row">
+                <div class="col m8 s12">
+                    <form action="booking-notification.html" method="POST">
+                    <ul class="stepper horizontal linear" style="min-height:600px;">
+                        <li class="step active">
+                            <div class="step-title waves-effect">Select Seat</div>
+                            <div class="step-content">
+                                <div class="col m12 s12 ">
+                                    <h5>14 Seats Available</h2>
+                                    <p class="bus-feat">Click on seat Select/Deselect</p>
+                                    <div id="seat-map"></div>
+                                </div>
+                        
+                                <div class="col m12 s12 ">
+                                    <div class="booking-details">
+                                        <h5>Legends</h5>
+                                        <div id="legend" class="seatCharts-legend"></div>
+                                    </div>
+                                </div>
+                                <div class="step-actions">
+                                    <div class="col m12 s12">
+                                            <!-- <button class="waves-effect waves-dark btn btn-red previous-step">BACK</button>                  -->
+                                            <button class="waves-effect waves-dark btn btn-red-ln next-step">NEXT</button>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+                        </li>
+                        <li class="step ">
+                            <div class="step-title waves-effect">Passenger Information Page</div>
+                            <div class="step-content">
+                                <h5 class="mgbt-20">Enter Passenger Information</h5>
+                                <div class="multiple-passenger ">
+                                    <div class="row">
+                                        <div class="col m12 s12">
+                                            <h5 class="operator-name mgbt-20">Passenger Details (Seat #1)</h5>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="passenger_name" name="passenger_name" type="text" class="validate" required>
+                                            <label for="passenger_name" class="active">Full Name</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="passenger_email" name="passenger_email" type="email" class="validate" required>
+                                            <label for="passenger_email">Email</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="passenger_tel" name="passenger_tel" type="tel" class="validate">
+                                            <label for="passenger_tel" >Phone number</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="n_passenger_name" name="n_passenger_name" type="text" class="validate">
+                                            <label for="n_passenger_name">Next of Kin Name</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="n_passenger_email" name="n_passenger_email" type="email" class="validate">
+                                            <label for="n_passenger_name">Next of Kin Email</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="n_passenger_number" name="n_passenger_number" type="tel" class="validate"> 
+                                            <label for="n_passenger_number">Next of Kin Phone Number</label>
+                                        </div>
+
+                                        <!-- ADD THIS FOR MORE THAN PASSENGER SEAT -->
+
+                                        <!-- <div class="input-field col m6 12">
+                                            <label>
+                                                <input type="checkbox" class="filled-in" />
+                                                <span>Apply this info for all.</span>
+                                            </label>
+                                        </div> -->
+                                    </div>
+                                </div>
+
+                                <!-- <div class="multiple-passenger ">
+                                    <div class="row">
+                                        <div class="col m12 s12">
+                                            <h5 class="operator-name mgbt-20">Passenger Details (Seat #1)</h5>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="passenger_name" name="passenger_name" type="text" class="validate" required>
+                                            <label for="passenger_name" class="active">Full Name</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="passenger_email" name="passenger_email" type="email" class="validate" required>
+                                            <label for="passenger_email">Email</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="passenger_tel" name="passenger_tel" type="tel" class="validate">
+                                            <label for="passenger_tel" >Phone number</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="n_passenger_name" name="n_passenger_name" type="text" class="validate">
+                                            <label for="n_passenger_name">Next of Kin Name</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="n_passenger_email" name="n_passenger_email" type="email" class="validate">
+                                            <label for="n_passenger_name">Next of Kin Email</label>
+                                        </div>
+                                        <div class="input-field col m4 s6">
+                                            <input id="n_passenger_number" name="n_passenger_number" type="tel" class="validate"> 
+                                            <label for="n_passenger_number">Next of Kin Phone Number</label>
+                                        </div>
+                                        
+                                    </div>
+                                </div> -->
+                              
+                                <div class="step-actions">
+                                    <button class="waves-effect waves-dark btn btn-red previous-step">BACK</button>                 
+                                    <button class="waves-effect waves-dark btn btn-red next-step">CONTINUE</button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="step ">
+                                <div class="step-title waves-effect">Payment</div>
+                                <div class="step-content">
+                                        <h5 class="mgbt-20">Enter Passenger Information</h5>
+                                        <div class="multiple-passenger ">
+                                            <div class="row">
+                                                <div class="col m12 s12">
+                                                    <h5 class="operator-name mgbt-20">Your booking details will be send to the contact provided</h5>
+                                                </div>
+                                                <div class="input-field col m4 s6">
+                                                    <input id="passenger_name" name="passenger_name" type="text" class="validate" required>
+                                                    <label for="passenger_name" class="active">Full Name</label>
+                                                </div>
+                                                <div class="input-field col m4 s6">
+                                                    <input id="passenger_email" name="passenger_email" type="email" class="validate">
+                                                    <label for="passenger_email">Email</label>
+                                                </div>
+                                                <div class="input-field col m4 s6">
+                                                    <input id="passenger_tel" name="passenger_tel" type="tel" class="validate">
+                                                    <label for="passenger_tel" >Phone number</label>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        
+                                        <h5 class="mgbt-20">Select Payment Method</h5>
+                                        <div class="row">
+                                            <div class="input-field col m3 s6">
+                                                <div class="chk chk-success">
+                                                    <input type="radio" id="bank" name="payment-type" value="3">
+                                                    <label for="bank">
+                                                        
+                                                        <span class="chk-title"> <i class="fa fa-bank"></i> Bank Transfer</span>
+                                                        
+                                                    </label>
+                                                </div>
+                                            </div> 
+                                            <div class="input-field col m3 s6">
+                                                    <div class="chk chk-success">
+                                                        <input type="radio" id="cyberpay" name="payment-type" value="3">
+                                                        <label for="cyberpay">
+                                                            <span class="chk-title"><img src="assets/img/cyberpay.png"></span>
+                                                        </label>
+                                                    </div>
+                                                </div> 
+                                                <div class="input-field col m3 s6">
+                                                        <div class="chk chk-success">
+                                                            <input type="radio" id="paystack" name="payment-type" value="3">
+                                                            <label for="paystack">
+                                                                <span class="ship-type">
+                                                                    </span>
+                                                                <span class="chk-title"><img src="assets/img/paystack.png"></span>
+                                                                
+                                                            </label>
+                                                        </div>
+                                                    </div>  
+                                                <div class="input-field col m12 s12">
+                                                        <div class="mgtp-50">
+                                                                <label>
+                                                                    <input type="checkbox" class="filled-in" />
+                                                                    <span>I agree to the <b>Terms and Conditions</b></span>
+                                                                </label>
+                                                            </div>
+                                                </div>
+                                        </div>
+                                    <div class="step-actions">
+                                        <button class="waves-effect waves-dark btn btn-red" type="submit">Finish and Proceed to Payment</button>
+                                    </div>
+                                </div>
+                            </li>
+                    </ul>
+                    </form>
+                </div>
+                <div class="col m4 s12">
+                    <div class="collapsible sidebar-collapse sidebar" style="display: inline-table;">
+                        <div class="sidebar-title">
+                            <h4>Booking Summary</h4>
+                        </div>
+                        <div class="sidebar-content">
+                            <div class="col m12 s12">
+                                <div class="operator-info">
+                                    <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors</p>
+                                    <p class="bus-feat">AC Toyota Hiace</p>
+                                </div>    
+                            </div>
+                            <div class="col m12 s6">
+                                <div class="operator-info">
+                                    <p class="operator-name" title="God is Good Motors Corporations">MAR 12, 2019</p>
+                                    <!-- <p class="bus-feat">AC Toyota Hiace</p> -->
+                                </div>    
+                            </div>
+                            <div class="col m3 s6">
+                                <div class="operator-info">
+                                    <p class="operator-name">9:00 am</p>
+                                    <span class="bus-feat">Depature</span>
+                                </div>
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info">
+                                    <p class="operator-name">Lagos</p>
+                                    <span class="bus-feat">Iyana-Ipaja</span>
+                                </div>
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info dist">
+                                    <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                    <span class="bus-feat">23h 21m</span>
+                                </div>
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info">
+                                    <p class="operator-name">FCT Abuja</p>
+                                    <span class="bus-feat">Gwagalada</span>
+                                </div>
+                            </div>
+                            <div class="col m12 s12">
+                                <div class="operator-info">
+                                    <p class="operator-name">SEAT NUMBER</p>
+                                    <span class="bus-feat"><ul id="selected-seats"></ul></span>
+                                </div>
+                            </div>
+                            <div class="col m6 s6">
+                                <div class="operator-info">
+                                    <p class="operator-name op-amt" id="counter"><span id="counter">0</span> x</p>
+                                </div>
+                            </div>
+                            <div class="col m6 s6">
+                                <div class="operator-info">
+                                    <p class="operator-name op-amt amt-sum"><span id="total">0</span></p>
+                                </div>
+                            </div>
+
+                            <!-- DETAILS FOR RETURN TRIP -->
+
+                            <!-- <div class="col m12 s12">
+                                <div clas="operator-info">
+                                    <span class="return-trip">RETURN DETAILS</span>
+                                </div>
+                            </div>
+                            <div class="col m12 s12">
+                                <div class="operator-info">
+                                    <p class="operator-name" title="God is Good Motors Corporations">God is Good Motors</p>
+                                    <p class="bus-feat">AC Toyota Hiace</p>
+                                </div>    
+                            </div>
+                            <div class="col m12 s12">
+                                <div class="operator-info">
+                                    <p class="operator-name" title="God is Good Motors Corporations">MAR 12, 2019</p>
+                                </div>    
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info">
+                                    <p class="operator-name">9:00 am</p>
+                                    <span class="bus-feat">Depature</span>
+                                </div>
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info">
+                                    <p class="operator-name">Lagos</p>
+                                    <span class="bus-feat">Iyana-Ipaja</span>
+                                </div>
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info dist">
+                                    <p class="operator-name"><i class="fa fa-long-arrow-right"></i></p>
+                                    <span class="bus-feat">23h 21m</span>
+                                </div>
+                            </div>
+                            <div class="col m3 s4">
+                                <div class="operator-info">
+                                    <p class="operator-name">FCT Abuja</p>
+                                    <span class="bus-feat">Gwagalada</span>
+                                </div>
+                            </div>
+                            <div class="col m12 s12">
+                                <div class="operator-info">
+                                    <p class="operator-name">SEAT NUMBER</p>
+                                    <span class="bus-feat">N 9500</span>
+                                </div>
+                            </div>
+                            <div class="col m6 s6">
+                                <div class="operator-info">
+                                    <p class="operator-name op-amt">4x</p>
+                                    <span class="bus-feat"></span>
+                                </div>
+                            </div>
+                            <div class="col m6 s6">
+                                <div class="operator-info">
+                                    <p class="operator-name op-amt">N 12,000</p>
+                                    <span class="bus-feat"></span>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="sidebar-footer">
+                            <div class="sidebar-content">
+                                <div class="col m6 s12">
+                                    <div class="operator-info">
+                                        <p class="operator-name  " title="">Discount</p>
+                                    </div>    
+                                </div>
+                                <div class="col m6 s12">
+                                    <div class="operator-info">
+                                        <p class="operator-name op-amt amt-sum">0.0</p>
+                                    </div>
+                                </div> 
+                                <div class="col m6 s12">
+                                        <div class="operator-info">
+                                            <p class="operator-name text-green">Total</p>
+                                        </div>    
+                                    </div>
+                                    <div class="col m6 s12">
+                                        <div class="operator-info">
+                                            <p class="operator-name op-amt amt-sum"><span id="total">0</span></p>
+                                        </div>
+                                    </div> 
+                            </div>
+                        </div>  
+                </div>
+
+                <!-- <div class="col m2 s12">
+                    <div class="right-ad">
+                        <img src="assets/img/right-corner-ad.png"/>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+          <div class="row">
+              <div class="col m12 s12">
+                    <div id="seat-map"></div>
+                  <div class="middle-banner">
+                      <img src="assets/img/middle-banner-ad.png" />
+                  </div>
+              </div>
+          </div>
+        </div>
+    </section>
+
+    <section class="partners">
+    <div class="container">
+        <div class="row">
+        <div class="col-md-12">
+            <ul class="partner-logo" id="partner-logo">
+            <li>
+                <img src="assets/img/gigm.png"/>
+            </li>
+            <li>
+                <img src="assets/img/guo-transport.png"/>
+            </li>
+            <li>
+                <img src="assets/img/pmt.png"/>
+            </li>
+            <li>
+                <img src="assets/img/gigm.png"/>
+            </li>
+            <li>
+                <img src="assets/img/guo-transport.png"/>
+                </li>
+                <li>
+                <img src="assets/img/pmt.png"/>
+                </li>
+                <li>
+                <img src="assets/img/gigm.png"/>
+                </li>
+            
+            </ul>
+        </div>
+        </div>
+    </div>
+    </section>
+    <footer class="footer" data-background-color="black">
+    <div class="container">
+        <div class="row">
+        <div class="col m3 s12">
+            <div class="footer-logo">
+            <img src="assets/img/CyBus.png"/>
+            <p class="section-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                A quae id nam iste, nulla incidunt ab. </p>
+            </div>
+        </div>
+        <div class="col m9 s12">
+            <div class="footer-links">
+            <div class="footer-link-item">
+                <h5>About</h5>
+                <ul class="">
+                <li class><a href="">About us</a></li>
+                <li class><a href="">Services</a></li>
+                <li class><a href="">Terms and Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-item">
+                <h5>Services</h5>
+                <ul class="">
+                <li class><a href="">Charter</a></li>
+                <li class><a href="">Cargo</a></li>
+                <li class><a href="">Camp Direct</a></li>
+                </ul>
+            </div>
+            <div class="footer-link-item">
+                <h5>Customer Service</h5>
+                <ul class="">
+                <li class><a href="">How it works</a></li>
+                <li class><a href="">FAQs</a></li>
+                <li class><a href="">Report Missing item</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-link-item">
+                <h5>Newsletter</h5>
+                <div class="subcribe-form">
+                    <form class="form-sub-custom">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email Address">
+                    </div>
+                    <button class="btn btn-red waves-effect waves-light" type="submit" style="width:100%;">Suscribe</button>
+                    </form>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </footer>
+
+
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+  
+  <!-- PAGE PLUGIN JS -->
+  <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="assets/plugins/js/jquery.seat-charts.js" type="text/javascript"></script>
+  <script src="assets/plugins/js/mstepper.js" type="text/javascript"></script>
+  <script src="assets/plugins/js/lightslider.js" type="text/javascript"></script>
+
+
+
+  <!-- END PAGE PLUGIN JS -->
+
+  <!-- GLOBAL JS -->
+  <script src="assets/js/materialize.js"></script>
+  <script src="assets/js/init.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  
+  
+  
+<script>
+
+    // important for scroll
+  $(window).scroll(function(){
+    var sticky = $('.sticky'),
+        scroll = $(window).scrollTop();
+
+    if (scroll >= 100) sticky.addClass('fixed');
+    else sticky.removeClass('fixed');
+    });
+// end
+
+var stepper = document.querySelector('.stepper');
+var stepperInstace = new MStepper(stepper, {
+   // Default active step.
+   firstActive: 0,
+   // Allow navigation by clicking on the next and previous steps on linear steppers.
+   linearStepsNavigation: true,
+   // Auto focus on first input of each step.
+   autoFocusInput: false,
+   // Set if a loading screen will appear while feedbacks functions are running.
+   showFeedbackPreloader: true,
+   // Auto generation of a form around the stepper.
+   autoFormCreation: false,
+   // Function to be called everytime a nextstep occurs. It receives 2 arguments, in this sequece: stepperForm, activeStepContent.
+  //  validationFunction: defaultValidationFunction, // more about this default functions below
+   // Enable or disable navigation by clicking on step-titles
+   stepTitleNavigation: true,
+   // Preloader used when step is waiting for feedback function. If not defined, Materializecss spinner-blue-only will be used.
+   feedbackPreloader: '<div class="spinner-layer spinner-blue-only">...</div>'
+})
+        
+
+
+  $('.home-ad-widget').slick({
+  dots: true,
+  infinite: true,
+  speed: 500,
+  fade: true,
+  autoplay:true,
+  accessibility:false,
+  arrows:false,
+  cssEase: 'linear'
+});
+
+	// Wait for window load
+	$(window).load(function() {
+	// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+    });
+    
+
+</script>
+<script>
+    var firstSeatLabel = 1;
+    $(document).ready(function() {
+        var $cart = $('#selected-seats'),
+            $counter = $('#counter'),
+            $total = $('#total'),
+            sc = $('#seat-map').seatCharts({
+            map: [
+                'a_aab',
+                'aa__b',
+                '_raab',
+                'draaa',
+            ],
+        seats: {
+            a: {
+                price   : 100,
+                classes : 'available-seat', //your custom CSS class
+                category: 'Available Seats'
+            },
+            b: {
+                price   : 40,
+                classes : 'booked-seat', //your custom CSS class
+                category: 'Booked Seat'
+            },
+            s: {
+                price   : 40,
+                classes : 'selected-seat', //your custom CSS class
+                category: 'Selected Seat'
+            },
+            r: {
+                price   : 40,
+                classes : 'reserved-seat', //your custom CSS class
+                category: 'Reserved Seat'
+            },
+            d: {
+                    price   : null,
+                    classes : 'driver-seat', //your custom CSS class
+                    category: 'driver Seat'
+                }								
+            
+            },
+            naming : {
+                top : false,
+                left:false,
+                getLabel : function (character, row, column) {
+                    return firstSeatLabel++;
+                },
+            },
+            legend : {
+                node : $('#legend'),
+                items : [
+                    [ 'a', 'available-seat',   'Available Seats' ],
+                    [ 's', 'selected-seat',   'Selected Seats'],
+                    [ 'b', 'booked-seat', ' Booked Seats'],
+                    [ 'r', 'reserved-seat', 'Reserved Seats']
+        
+                ]					
+            },
+            click: function () {
+                if (this.status() == 'available') {
+                    //let's create a new <li> which we'll add to the cart items
+                    $('<li> # '+this.settings.label+': <b>&#8358;'+this.data().price+'</b> </li>')
+                        .attr('id', 'cart-item-'+this.settings.id)
+                        .data('seatId', this.settings.id)
+                        .appendTo($cart);
+                    
+                    /*
+                        * Lets update the counter and total
+                        *
+                        * .find function will not find the current seat, because it will change its stauts only after return
+                        * 'selected'. This is why we have to add 1 to the length and the current seat price to the total.
+                        */
+                    $counter.text(sc.find('selected').length+1);
+                    $total.text(recalculateTotal(sc)+this.data().price);
+                    
+                    return 'selected';
+                 } else if (this.status() == 'selected') {
+                    //update the counter
+                    $counter.text(sc.find('selected').length-1);
+                    //and total
+                    $total.text(recalculateTotal(sc)-this.data().price);
+                
+                    //remove the item from our cart
+                    $('#cart-item-'+this.settings.id).remove();
+                
+                    //seat has been vacated
+                    return 'available';
+                } else if (this.status() == 'unavailable') {
+                    //seat has been already booked
+                    return 'unavailable';
+                } else {
+                    return this.style();
+                }
+            }
+        });
+
+        //this will handle "[cancel]" link clicks
+        $('#selected-seats').on('click', '.cancel-cart-item', function () {
+            //let's just trigger Click event on the appropriate seat, so we don't have to repeat the logic here
+            sc.get($(this).parents('li:first').data('seatId')).click();
+        });
+
+        //let's pretend some seats have already been booked
+        sc.get(['1_2', '4_1', '7_1', '7_2']).status('unavailable');
+    
+    });
+
+    function recalculateTotal(sc) {
+        var total = 0;
+    
+        //basically find every selected seat and sum its price
+        sc.find('selected').each(function () {
+            total += this.data().price;
+        });
+        
+        return total;
+    }
+    
+
+</script>
+</body>
+</html>
