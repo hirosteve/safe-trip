@@ -460,6 +460,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-d
 }
 .switch-btn img{
   padding: 15px 0px;
+  cursor: pointer;
 }
 .btn-red{
   background-color:#f7931e;

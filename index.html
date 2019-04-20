@@ -64,7 +64,7 @@
                         <div class="tab-content">
                             <div id="bus" class="col m12 s12">
                               <h5>Book Now</h5>
-                              <form method="POST" action="bus-listing.html">
+                              <form action="bus-listing.html">
                                 <p>
                                   <label>
                                     <input class="with-gap" name="group3" type="radio" checked />
@@ -76,16 +76,16 @@
                                   </label>
                                 </p>
                                 <div class="input-field col m3 s4">
-                                  <input id="from_tags" type="text" class="validate">
+                                  <input id="from_tags" type="text" class="validate autocomplete">
                                   <label for="from_tags" class="active">From</label>
                                 </div>
                                 <div class="input-field col m1 s4">
-                                  <div class="switch-btn">
+                                  <div class="switch-btn" id="switch-btn">
                                       <img src="assets/img/switch-route.svg"/>
                                     </div>
                                   </div>
                                   <div class="input-field col m3 s4">
-                                      <input id="to_tags" type="text" class="validate">
+                                      <input id="to_tags" type="text" class="validate autocomplete">
                                       <label for="to_tags">To</label>
                                     </div>
                                     <div class="input-field col m2 s6">
@@ -608,6 +608,10 @@ $(document).ready(function(){
  $(document).ready(function(){
     $('select').formSelect();
   });
+
+  $(document).ready(function(){
+    $('.autocomplete').autocomplete();
+  });
         
 
   $('.home-ad-widget').slick({
@@ -626,7 +630,18 @@ $(document).ready(function(){
 	$(window).load(function() {
 		// Animate loader off screen
 		$(".se-pre-con").fadeOut("slow");;
-	});
+  });
+
+  $(document).ready(function(){
+    $("#switch-btn").click(function(){
+      var fromTag = $("#from_tags").val();
+      var toTag = $("#to_tags").val();
+      var swapTag = toTag;
+      $("#to_tags").val(fromTag).fadeIn("slow");
+      $("#from_tags").val(swapTag).fadeIn("slow");
+    });
+  });
+
 
 </script>
 </body>
