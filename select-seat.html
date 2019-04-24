@@ -94,7 +94,7 @@
         <div class="container">
             <div class="row">
                 <div class="col m8 s12">
-                    <form action="/booking-notification.html" >
+                    <form action="booking-notification.html">
                     <ul class="stepper horizontal linear" style="min-height:600px;">
                         <li class="step active">
                             <div class="step-title waves-effect">Select Seat</div>
@@ -332,7 +332,7 @@
                             </div>
                             <div class="col m6 s6">
                                 <div class="operator-info">
-                                    <p class="operator-name op-amt amt-sum"><span id="total">0</span></p>
+                                    <p class="operator-name op-amt amt-sum"><span class="total">0</span></p>
                                 </div>
                             </div>
 
@@ -399,6 +399,17 @@
                         </div>
                         <div class="sidebar-footer">
                             <div class="sidebar-content">
+                                    <div class="col m12 s12">
+                                            <div class="input-field">
+                                                <input id="c_code" type="text"placeholder="Enter Coupon Code"> 
+                                                <label for="c_code"></label>
+        
+                                            </div>
+                                        </div>
+                                        <div class="col m12 s12">
+                                           
+                                                <button class="btn btn-red waves-effect waves-light" width="100%">APPLY COUPON CODE</button>
+                                        </div>
                                 <div class="col m6 s12">
                                     <div class="operator-info">
                                         <p class="operator-name  " title="">Discount</p>
@@ -408,7 +419,8 @@
                                     <div class="operator-info">
                                         <p class="operator-name op-amt amt-sum">0.0</p>
                                     </div>
-                                </div> 
+                                </div>
+                                
                                 <div class="col m6 s12">
                                         <div class="operator-info">
                                             <p class="operator-name text-green">Total</p>
@@ -416,7 +428,7 @@
                                     </div>
                                     <div class="col m6 s12">
                                         <div class="operator-info">
-                                            <p class="operator-name op-amt amt-sum"><span id="total">0</span></p>
+                                            <p class="operator-name op-amt amt-sum"><span class="total">0</span></p>
                                         </div>
                                     </div> 
                             </div>
@@ -613,7 +625,7 @@ var stepperInstace = new MStepper(stepper, {
     $(document).ready(function() {
         var $cart = $('#selected-seats'),
             $counter = $('#counter'),
-            $total = $('#total'),
+            $total = $('.total'),
             sc = $('#seat-map').seatCharts({
             map: [
                 'a_aab',

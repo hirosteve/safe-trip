@@ -684,11 +684,11 @@ line-height: 1.8;
   font-weight: 400;
 }
 .non-active-r.route-legend::before {
-  background-color: #FF9393;  
+  background-color: #21C17A;  
 }
 
 .active-r.route-legend::before  {
-  background-color: #E92D2D;  
+  background-color: #f7931e;  
 }
 
 
@@ -1770,4 +1770,15 @@ span.badge-new{
 .info-bg.camp-bg, .info-bg.charter-bg, .info-bg.cargo-bg{
   margin-bottom:0px;
   padding:35px 30px;
+}
+
+.picker__holder {
+min-width: 300px;
+}
+
+.picker__input--active>label:not(.label-icon).active {
+  -webkit-transform: translateY(-14px) scale(0.8);
+  transform: translateY(-14px) scale(0.8);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
 }

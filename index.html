@@ -10,7 +10,8 @@
   <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet">
   <link href="assets/plugins/css/lightslider.css" rel="stylesheet"/>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
+  <link href="assets/plugins/css/classic.css" rel="stylesheet"/>
+  <link href="assets/plugins/css/classic.date.css" rel="stylesheet"/>
   <!-- END PAGE PLUGIN -->
 
   <!-- GLOBAL CSS  -->
@@ -85,15 +86,15 @@
                                     </div>
                                   </div>
                                   <div class="input-field col m3 s4">
-                                      <input id="to_tags" type="text" class="validate autocomplete">
+                                      <input id="to_tags" type="text" class="validate">
                                       <label for="to_tags">To</label>
                                     </div>
                                     <div class="input-field col m2 s6">
-                                      <input id="depart_date" type="text" class="validate ">
-                                      <label for="depart_date">Departure</label>
+                                      <input id="depart_date" type="text" class="validate datepicker">
+                                      <label for="depart_date" class="active">Departure</label>
                                     </div>
                                     <div class="input-field col m2 s6">
-                                        <input id="return_date" type="text" class="datepicker">
+                                        <input id="return_date" type="text" class=" validate datepicker">
                                         <label for="return_date">Return Date</label>
                                       </div>
                                     <div class="input-field col m1 s6">
@@ -563,6 +564,8 @@
   <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="assets/plugins/js/mapdata.js"></script>
+  <script src="assets/plugins/js/picker.js"></script>
+  <script src="assets/plugins/js/picker.date.js"></script>
   <script src="assets/plugins/js/countrymap.js"></script>
   <script src="assets/plugins/js/lightslider.js" type="text/javascript"></script>
   <!-- END PAGE PLUGIN JS -->
@@ -644,7 +647,8 @@ $(document).ready(function(){
     });
   });
 
-
+  $('.datepicker').pickadate()
+  picker = $input.pickadate('picker');
 </script>
 </body>
 </html>

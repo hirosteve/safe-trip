@@ -11,6 +11,9 @@
   <link href="assets/plugins/css/lightslider.css" rel="stylesheet"/>
   <link href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" type="text/css" />
   <link href="assets/plugins/css/nouislider.css" rel="stylesheet"/>
+  <link href="assets/plugins/css/classic.css" rel="stylesheet"/>
+  <link href="assets/plugins/css/classic.date.css" rel="stylesheet"/>
+
 
 
   <!-- END PAGE PLUGIN -->
@@ -105,11 +108,11 @@
                                     </div>
                                 </div>
                                 <div class="input-field col m2 s5">
-                                    <input id="to_tags" type="text" class=" validate">
+                                    <input id="to_tags" type="text" class="validate">
                                     <label for="to_tags">To</label>
                                     </div>
                                     <div class="input-field col m2 s6">
-                                    <input id="depart_date" type="text" class="validate ">
+                                    <input id="depart_date" type="text" class=" datepicker">
                                     <label for="depart_date">Departure</label>
                                     </div>
                                     <div class="input-field col m2 s6">
@@ -177,7 +180,10 @@
                                 </div>
                                 <div class="collapsible-body" style="display:block;">
                                     <div class="pad-slider">
-                                        <div id="price-slider"></div>
+                                        <div id="price_slider"></div>
+                                        <span id="range-value-1" class="">2950</span>
+                                        <span id="range-value-2" class="">2950</span>
+
                                     </div>
                                 </div>
                             </li>
@@ -1370,6 +1376,8 @@
   <!-- <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script src="assets/plugins/js/mapdata.js"></script>
+  <script src="assets/plugins/js/picker.js"></script>
+  <script src="assets/plugins/js/picker.date.js"></script>
   <script src="assets/plugins/js/countrymap.js"></script>
   <script src="assets/plugins/js/lightslider.js" type="text/javascript"></script>
   <script src="assets/plugins/js/nouislider.js" type="text/javascript"></script>
@@ -1419,9 +1427,11 @@
   $(document).ready(function(){
     $('.collapsible').collapsible();
   });
-        
-        
 
+
+    $('.datepicker').pickadate()
+
+        
   $('.home-ad-widget').slick({
   dots: true,
   infinite: true,
@@ -1461,12 +1471,9 @@
     // from the left edge of the slider.
 
 
-
-
-
  // PRICE RANGE
 
-    var nonLinearSlider  = document.getElementById('price-slider');
+    var nonLinearSlider  = document.getElementById('price_slider');
     noUiSlider.create(nonLinearSlider, {
         start: [150, 400],
         tooltips: true,
@@ -1475,8 +1482,28 @@
             'min': 100,
             'max': 500
         }
-    });
+
     
+    });     
+
+    var valuesDivs = [
+    document.getElementById('range-value-1'),
+    document.getElementById('range-value-2')
+];
+
+    
+    var diffDivs = [
+    document.getElementById('range-diff-1'),
+    document.getElementById('range-diff-2')
+];
+
+// When the slider value changes, update the input and span
+price_slider.noUiSlider.on('update', function (values, handle) {
+    valuesDivs[handle].innerHTML = values[handle];
+    diffDivs[0].innerHTML = values[1] - values[0];
+    diffDivs[1].innerHTML = values[2] - values[1];
+
+});
 
 
 $(document).ready(function(){
@@ -1515,7 +1542,15 @@ $(document).ready(function(){
       $("#from_tags").val(swapTag).fadeIn("slow");
     });
   });
-
 </script>
 </body>
 </html>
+<!-- <style>
+.holder {
+            position: relative;
+            z-index: 10000;
+        }
+        .datepicker {
+            display: block;
+        }
+        </style> -->
