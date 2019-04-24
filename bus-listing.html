@@ -168,7 +168,9 @@
                                 </div>
                                 <div class="collapsible-body" style="display:block;">
                                     <div class="pad-slider">
-                                        <div id="departure-slider"></div>
+                                        <div id="departure_slider"></div>
+                                        <span id="time-value-1" class=""></span>
+                                        <span id="time-value-2" class=""></span>
                                     </div>   
                                 </div>
                             </li>
@@ -181,8 +183,8 @@
                                 <div class="collapsible-body" style="display:block;">
                                     <div class="pad-slider">
                                         <div id="price_slider"></div>
-                                        <span id="range-value-1" class="">2950</span>
-                                        <span id="range-value-2" class="">2950</span>
+                                        <span id="range-value-1" class="hide"></span>
+                                        <span id="range-value-2" class="hide"></span>
 
                                     </div>
                                 </div>
@@ -1455,7 +1457,7 @@
 
     // DEPATURE TIME RANGE
 
-    var nonLinearSlider  = document.getElementById('departure-slider');
+    var nonLinearSlider  = document.getElementById('departure_slider');
     noUiSlider.create(nonLinearSlider, {
         start: [3, 8],
         // tooltips: [false, wNumb({decimals: 1}), true],
@@ -1466,6 +1468,25 @@
             'max': 12
         }
     });
+
+    var valuesTimeDivs = [
+    document.getElementById('time-value-1'),
+    document.getElementById('time-value-2')
+    ];
+  
+    var diffTimeDivs = [
+    document.getElementById('time-diff-1'),
+    document.getElementById('time-diff-2')
+    ];
+
+    // When the slider value changes, update the input and span
+    departure_slider.noUiSlider.on('update', function (values, handle) {
+        valuesTimeDivs[handle].innerHTML = values[handle];
+        diffTimeDivs[0].innerHTML = values[1] - values[0];
+        diffTimeDivs[1].innerHTML = values[2] - values[1];
+
+    });
+    
    
     // Display the slider value and how far the handle moved
     // from the left edge of the slider.
@@ -1482,28 +1503,25 @@
             'min': 100,
             'max': 500
         }
-
-    
     });     
 
     var valuesDivs = [
     document.getElementById('range-value-1'),
     document.getElementById('range-value-2')
-];
-
-    
+    ];
+  
     var diffDivs = [
     document.getElementById('range-diff-1'),
     document.getElementById('range-diff-2')
-];
+    ];
 
-// When the slider value changes, update the input and span
-price_slider.noUiSlider.on('update', function (values, handle) {
-    valuesDivs[handle].innerHTML = values[handle];
-    diffDivs[0].innerHTML = values[1] - values[0];
-    diffDivs[1].innerHTML = values[2] - values[1];
+    // When the slider value changes, update the input and span
+    price_slider.noUiSlider.on('update', function (values, handle) {
+        valuesDivs[handle].innerHTML = values[handle];
+        diffDivs[0].innerHTML = values[1] - values[0];
+        diffDivs[1].innerHTML = values[2] - values[1];
 
-});
+    });
 
 
 $(document).ready(function(){
