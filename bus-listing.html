@@ -183,9 +183,8 @@
                                 <div class="collapsible-body" style="display:block;">
                                     <div class="pad-slider">
                                         <div id="price_slider"></div>
-                                        <span id="range-value-1" class="hide"></span>
-                                        <span id="range-value-2" class="hide"></span>
-
+                                        <span id="range-value-1" class="hide-none"></span>
+                                        <span id="range-value-2" class="hide-none"></span>
                                     </div>
                                 </div>
                             </li>
@@ -1482,7 +1481,7 @@
     // When the slider value changes, update the input and span
     departure_slider.noUiSlider.on('update', function (values, handle) {
         valuesTimeDivs[handle].innerHTML = values[handle];
-        diffTimeDivs[0].innerHTML = values[1] - values[0];
+//         diffTimeDivs[0].innerHTML = values[1] - values[0];
         diffTimeDivs[1].innerHTML = values[2] - values[1];
 
     });
