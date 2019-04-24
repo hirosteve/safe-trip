@@ -230,6 +230,20 @@ nav.fixed ul a{
   padding: 0 32px;
 }
 
+
+.nav-strip-head.dwn-app {
+  padding:5px 0px 5px;
+}
+.nav-strip-head .cus-care{
+  color:#fff;
+  background-color:#f7931e;
+  padding:10px 20px;
+}
+
+.nav-strip-content > .row{
+  margin:0px;
+}
+
 .fixed a.sidenav-trigger:visited, .fixed a.sidenav-trigger:link{
   color:#000;
 }
@@ -292,7 +306,7 @@ nav.fixed ul a{
 
 .widget-background.page-bg {
   /* padding-top:90px; */
-  height:20vh;
+  height:30vh;
   min-height:200px;
   background-size:cover;
   background-image:url('../../assets/img/widget-background.png'); 
@@ -395,7 +409,7 @@ input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):
 }
 
 input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-default):focus:not([readonly]) + label, input[type=password]:not(.browser-default):focus:not([readonly]) + label, input[type=email]:not(.browser-default):focus:not([readonly]) + label, input[type=url]:not(.browser-default):focus:not([readonly]) + label, input[type=time]:not(.browser-default):focus:not([readonly]) + label, input[type=date]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, input[type=tel]:not(.browser-default):focus:not([readonly]) + label, input[type=number]:not(.browser-default):focus:not([readonly]) + label, input[type=search]:not(.browser-default):focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label{
-  color: #ee1111;
+  color: #f7931e;
 }
 
 [type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
@@ -508,6 +522,7 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-d
 
 .top-route{
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   background-color: #fff;
   padding:15px 40px;
@@ -517,6 +532,8 @@ input:not([type]):focus:not([readonly]) + label, input[type=text]:not(.browser-d
 
 .top-route{
   margin-bottom:-30px;
+  margin-top:20px;
+
 }
 
 .section-title h2{
@@ -680,7 +697,8 @@ line-height: 1.8;
 
 .travel-bg{
   background-color: linear-gradient(180deg, #1755DF 0%, rgba(13, 57, 154, 0.9) 100%);
-  background-color: #1755df;
+  /* background-color: #1755df; */
+  background-color: #f7931e;
   padding:60px 0px;
   background-image: url("../img/travel-bus.png");
   transition:background-position 2s; 
@@ -694,13 +712,15 @@ line-height: 1.8;
   padding:20px 15px 10px;
   text-align:center;
   border-radius:4px;
+  box-shadow: 1px 0px 7px 1px rgba(0, 0, 0, 0.22);
+  -webkit-box-shadow: 1px 0px 7px 1px rgba(0, 0, 0, 0.22);
   /* margin-top:10px; */
 }
 
 .app-item p{
   color:#000;
   font-size:13px;
-  font-weight:300;
+  font-weight:400;
   margin-bottom:5px;
 }
 
@@ -742,12 +762,14 @@ line-height: 1.8;
 .testimony-item{
   background: #FFFFFF;
   box-shadow:0px 2px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow:0px 2px 20px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   padding:15px 10px;
 }
 
 .user-testimony img{
   box-shadow:0px 2px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow:0px 2px 20px rgba(0, 0, 0, 0.1);
   width: 100px;
   height: 100px;
   border-radius: 50px;
@@ -788,13 +810,118 @@ padding:10px 0px;
 
 .footer ul li{
   display:block;
+  padding:5px 0px;
+
 }
 .footer ul li a:link, footer ul li a:visited {
   color: #ABABAB;
-  padding:5px 0px;
   font-weight:400;
   font-size:14px;
   text-transform:capitalize;
+}
+
+
+ul.footer-social li{
+  display: inline-block;
+  margin-right:5px;
+}
+ ul.footer-social li a i{
+  background-color:#ABABAB;
+  padding:6px 7px;
+  border-radius:4px;
+}
+
+ul.footer-social li a.facebook:hover i{
+  background-color:#294580;
+  padding:6px 9px;
+  /* border-radius:4px; */
+  color:#fff;
+}
+
+ul.footer-social li a.facebook i{
+  /* background-color:#3b5998; */
+  padding:6px 9px;
+  /* border-radius:4px; */
+  color:#fff;
+  -webkit-transition: background-color .4s linear, color .4s linear;
+  -moz-transition: background-color .4s linear, color .4s linear;
+  -o-transition: background-color .4s linear, color .4s linear;
+  -ms-transition: background-color .4s linear, color .4s linear;
+  transition: background-color .4s linear, color .4s linear;
+}
+
+ul.footer-social li a.twitter i{
+  /* background-color:#38A1F3; */
+  /* padding:5px 8px; */
+  /* border-radius:4px; */
+  color:#fff;
+  -webkit-transition: background-color .4s linear, color .4s linear;
+  -moz-transition: background-color .4s linear, color .4s linear;
+  -o-transition: background-color .4s linear, color .4s linear;
+  -ms-transition: background-color .4s linear, color .4s linear;
+  transition: background-color .4s linear, color .4s linear;
+}
+
+ul.footer-social li a.twitter:hover i{
+  background-color:#2f8ad2;
+  /* padding:5px 8px; */
+  /* border-radius:4px; */
+  color:#fff;
+}
+
+
+
+ul.footer-social li a.instagram:hover i{
+  background-color:#e1306c;
+  /* padding:5px 8px; */
+  /* border-radius:4px; */
+  color:#fff;
+  -webkit-transition: background-color .4s linear, color .4s linear;
+  -moz-transition: background-color .4s linear, color .4s linear;
+  -o-transition: background-color .4s linear, color .4s linear;
+  -ms-transition: background-color .4s linear, color .4s linear;
+  transition: background-color .4s linear, color .4s linear;
+}
+
+ul.footer-social li a.instagram i{
+  color:#fff;
+  -webkit-transition: background-color .4s linear, color .4s linear;
+  -moz-transition: background-color .4s linear, color .4s linear;
+  -o-transition: background-color .4s linear, color .4s linear;
+  -ms-transition: background-color .4s linear, color .4s linear;
+  transition: background-color .4s linear, color .4s linear;
+}
+
+ul.footer-social li a.youtube i{
+  color:#fff;
+  -webkit-transition: background-color .4s linear, color .4s linear;
+  -moz-transition: background-color .4s linear, color .4s linear;
+  -o-transition: background-color .4s linear, color .4s linear;
+  -ms-transition: background-color .4s linear, color .4s linear;
+  transition: background-color .4s linear, color .4s linear;
+}
+
+ul.footer-social li a.youtube:hover i{
+   
+  background-color:#ff0000;
+
+   /* padding:5px 8px; */
+  /* border-radius:4px; */
+  color:#fff;
+  -webkit-transition: background-color .4s linear, color .4s linear;
+  -moz-transition: background-color .4s linear, color .4s linear;
+  -o-transition: background-color .4s linear, color .4s linear;
+  -ms-transition: background-color .4s linear, color .4s linear;
+  transition: background-color .4s linear, color .4s linear;
+}
+
+
+ul.footer-social li a.facebook:hover, ul.footer-social li a.twitter:hover, ul.footer-social li a.instagram:hover, ul.footer-social li a.facebook, ul.footer-social li a.twitter, ul.footer-social li a.instagram{
+  -webkit-transition: background-color .4s linear, color .4s linear;
+-moz-transition: background-color .4s linear, color .4s linear;
+-o-transition: background-color .4s linear, color .4s linear;
+-ms-transition: background-color .4s linear, color .4s linear;
+transition: background-color .4s linear, color .4s linear;
 }
 
 .footer-link-item h5{
@@ -802,6 +929,7 @@ padding:10px 0px;
   margin-bottom:10px;
   font-size:14px;
   font-weight:500;
+  line-height: 2;
 }
 
 .sidenav-trigger {
@@ -889,6 +1017,7 @@ footer.page-footer {
 } */
 .modify-search{
   box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     background-color: #fff;
     padding: 15px 20px;
@@ -917,6 +1046,8 @@ min-height:inherit;
 .sidebar-collapse, .search-result, .info-container, .safe-container{
 background: #FFFFFF;
 box-shadow: 1px 1px 18px rgba(0, 0, 0, 0.25);
+-webkit-box-shadow: 1px 1px 18px rgba(0, 0, 0, 0.25);
+
 transition: 0.3s box-shadow 0.2s;
 }
 
@@ -924,6 +1055,8 @@ transition: 0.3s box-shadow 0.2s;
 
 .sidebar-collapse:hover, .search-result:hover, .info-container:hover, .safe-container:hover{
 box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+
 transition: 0.3s box-shadow 0.2s;
 }
 
@@ -1074,6 +1207,8 @@ padding-bottom:3rem;
 
 .search-result{
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+
   padding:25px 10px 15px;
   background-color:#fff;
   overflow:hidden;
@@ -1083,6 +1218,8 @@ padding-bottom:3rem;
 .search-item{
   background: #FFFFFF;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+
 
 }
 
@@ -1444,6 +1581,8 @@ input[type=email]:not(.browser-default),
   background-color: #fff;
   padding: 15px 20px;
   box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+  -webkit-box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.18);
+
   /* border-radius: 4px; */
 }
 
@@ -1597,7 +1736,7 @@ span.badge-new{
     color: #fff;
     border-radius: 4px;
     position: absolute;
-    top: 4px;
+    top: 11px;
     /* line-height: 10px; */
     font-size: 10px;
     padding: 2px 8px;
@@ -1611,4 +1750,24 @@ span.badge-new{
 
 .no-search p.bus-feat{
   color:#ffa400;
+}
+
+.info-bg.camp-bg{
+  background: url('../../assets/img/nysc-img.png');
+  background-size:cover;
+}
+
+.info-bg.charter-bg{
+  background: url('../../assets/img/charter-img.png');
+  background-size:cover;
+}
+
+.info-bg.cargo-bg{
+  background: url('../../assets/img/cargo-img.png');
+  background-size:cover;
+}
+
+.info-bg.camp-bg, .info-bg.charter-bg, .info-bg.cargo-bg{
+  margin-bottom:0px;
+  padding:35px 30px;
 }

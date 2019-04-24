@@ -25,9 +25,38 @@
 </head>
 <body class="page-inner">
     <div class="se-pre-con"></div>
+    <section class="nav-strip">
+        <div class="container">
+           <div class="nav-strip-content">
+                <div class="row">
+                    <div class="col m6">
+                        <div class="nav-strip-head dwn-app">
+                                <span>Download our mobile app</span>
+                                <span>
+                                    <a href="javascript:;">
+                                        <img src="assets/img/btn-google-play.png" style="width:90px">
+                                    </a>
+                                    
+                                </span>
+                                <span>
+                                    <a href="javascript:;">
+                                        <img src="assets/img/btn-app-store.png"  style="width:90px">
+                                    </a>
+                                </span>
+                        </div>
+                    </div>
+                    <div class="col m6">
+                        <div class="nav-strip-head">
+                            <span class="cus-care right"><i class="fa fa-phone"></i> Customer Care <a href="tel:+234 812 345 6789">+234 801 234 4586</a></span>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </div>
+    </section>
     <nav class="navbar nav-custom navbar-page  navbar-color-on-scroll sticky navbar-expand-lg" color-on-scroll="100">
           <div class="nav-wrapper container">
-            <a id="logo-container" href="index.html" class="brand-logo"><img src="assets/img/safe-trip-logo.png"/></a>
+            <a id="logo-container" href="index.html" class="brand-logo"><img src="assets/img/safetrip-logo.png" width="130px;"/></a>
             <ul class="right hide-on-med-and-down">
               <li><a href="index.html">Home </a></li>
               <li><a href="#">About us </a></li>
@@ -71,7 +100,7 @@
                                 <label for="from_tags">From</label>
                                 </div>
                                 <div class="input-field col m1 s2">
-                                <div class="switch-btn">
+                                <div class="switch-btn"  id="switch-btn">
                                     <img src="assets/img/switch-route.svg"/>
                                     </div>
                                 </div>
@@ -1279,9 +1308,13 @@
         <div class="row">
         <div class="col m3 s12">
             <div class="footer-logo">
-            <img src="assets/img/CyBus.png"/>
-            <p class="section-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A quae id nam iste, nulla incidunt ab. </p>
+                <img src="assets/img/safetrip-logo.png" width="150px;"/>
+                <ul class="footer-social">
+                    <li><a href="#" class="social-icon facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#" class="social-icon twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="social-icon instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" class="social-icon youtube"><i class="fa fa-youtube"></i></a></li>
+                </ul>
             </div>
         </div>
         <div class="col m9 s12">
@@ -1472,6 +1505,16 @@ $(document).ready(function(){
     // })
 
 });
+
+$(document).ready(function(){
+    $("#switch-btn").click(function(){
+      var fromTag = $("#from_tags").val();
+      var toTag = $("#to_tags").val();
+      var swapTag = toTag;
+      $("#to_tags").val(fromTag).fadeIn("slow");
+      $("#from_tags").val(swapTag).fadeIn("slow");
+    });
+  });
 
 </script>
 </body>

@@ -27,7 +27,7 @@
       <nav class="navbar nav-custom navbar-home navbar-transparent navbar-color-on-scroll sticky navbar-expand-lg" color-on-scroll="100">
           <div class="nav-wrapper container">
             <a id="logo-white" href="index.html" class="brand-logo white_logo"><img src="assets/img/safe-trip-logo-white.png" width="150px"/></a>
-            <a id="main_logo" href="index.html" class="brand-logo main_logo"> <img src="assets/img/safe-trip-logo.png"/></a>
+            <a id="main_logo" href="index.html" class="brand-logo main_logo"> <img src="assets/img/safetrip-logo.png"  width="120px"/></a>
 
             <ul class="right hide-on-med-and-down">
               <li><a href="index.html">Home </a></li>
@@ -56,9 +56,9 @@
                     <div>
                       <ul class="tabs tab-custom tab-demo z-depth-1">
                           <li class="tab"><a  href="#bus" class="active"><img src="assets/img/bus.svg"> Bus</a></li>
-                          <li class="tab"><a href="#" target="_self" ><img src="assets/img/camp-direct.svg"> Camp Direct</a></li>
-                          <li class="tab"><a href="#" target="_self"><img src="assets/img/charter.svg"> Charter</a></li>
-                          <li class="tab"><a href="#" target="_self"><img src="assets/img/cargo.svg"> Cargo</a></li>
+                          <li class="tab"><a href="camp-direct.html" target="_self" ><img src="assets/img/camp-direct.svg"> Camp Direct</a></li>
+                          <li class="tab"><a href="charter.html" target="_self"><img src="assets/img/charter.svg"> Charter</a></li>
+                          <li class="tab"><a href="cargo.html" target="_self"><img src="assets/img/cargo.svg"> Cargo</a></li>
                           <li class="tab"><a href="#book-status"><img src="assets/img/book-status.svg"> Booking Status</a></li>
                         </ul>
                         <div class="tab-content">
@@ -419,7 +419,7 @@
                       <img src="assets/img/girl1.jpg" />
                     </span>
                     <span class="user-name">
-                      <p>Mary Ciroma</p>
+                      <p class="operator-name">Mary Ciroma</p>
                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                           Maecenas sem lectus, tincidunt vel est ac, bibendum 
                           suscipit urna. </p>
@@ -430,7 +430,7 @@
                         <img src="assets/img/girl1.jpg" />
                       </span>
                       <span class="user-name">
-                        <p>Mary Ciroma</p>
+                        <p class="operator-name">Mary Ciroma</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                             Maecenas sem lectus, tincidunt vel est ac, bibendum 
                             suscipit urna. </p>
@@ -441,7 +441,7 @@
                           <img src="assets/img/girl1.jpg" />
                         </span>
                         <span class="user-name">
-                          <p>Mary Ciroma</p>
+                          <p class="operator-name">Mary Ciroma</p>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                               Maecenas sem lectus, tincidunt vel est ac, bibendum 
                               suscipit urna. </p>
@@ -452,7 +452,7 @@
                             <img src="assets/img/girl1.jpg" />
                           </span>
                           <span class="user-name">
-                            <p>Mary Ciroma</p>
+                            <p class="operator-name">Mary Ciroma</p>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                                 Maecenas sem lectus, tincidunt vel est ac, bibendum 
                                 suscipit urna. </p>
@@ -501,9 +501,13 @@
           <div class="row">
             <div class="col m3 s12">
               <div class="footer-logo">
-                <img src="assets/img/safe-trip-logo.png"/>
-                <p class="section-info">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                  A quae id nam iste, nulla incidunt ab. </p>
+                <img src="assets/img/safetrip-logo.png" width="150px;"/>
+                <ul class="footer-social">
+                  <li><a href="#" class="social-icon facebook"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" class="social-icon twitter"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" class="social-icon instagram"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="#" class="social-icon youtube"><i class="fa fa-youtube"></i></a></li>
+                </ul>
               </div>
             </div>
             <div class="col m9 s12">
@@ -605,9 +609,7 @@ $(document).ready(function(){
     $('.tabs').tabs();
   });
 
- $(document).ready(function(){
-    $('select').formSelect();
-  });
+ 
 
   $(document).ready(function(){
     $('.autocomplete').autocomplete();

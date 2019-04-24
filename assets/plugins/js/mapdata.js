@@ -8,8 +8,8 @@ var simplemaps_countrymap_mapdata={
     
     //State defaults
     state_description: "No Operator",
-    state_color: "#FF9393",
-    state_hover_color: "#E92D2D",
+    state_color: "#f7931e",
+    state_hover_color: "#e37100",
     state_url: "",
     border_size: 1.5,
     all_states_inactive: "no",
@@ -81,7 +81,7 @@ var simplemaps_countrymap_mapdata={
     NGA2842: {
       name: "Akwa Ibom",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
     NGA2843: {
       name: "Imo"
@@ -92,7 +92,7 @@ var simplemaps_countrymap_mapdata={
     NGA2845: {
       name: "Bayelsa",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
     NGA2846: {
       name: "Benue"
@@ -100,8 +100,9 @@ var simplemaps_countrymap_mapdata={
     NGA2847: {
       name: "Cross River",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
+    
     NGA2848: {
       name: "Taraba"
     },
@@ -111,7 +112,7 @@ var simplemaps_countrymap_mapdata={
     NGA2850: {
       name: "Lagos",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
     NGA2851: {
       name: "Niger"
@@ -155,12 +156,12 @@ var simplemaps_countrymap_mapdata={
     NGA2864: {
       name: "Kaduna",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
     NGA2865: {
       name: "Kogi",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
     NGA2866: {
       name: "Plateau"
@@ -177,7 +178,7 @@ var simplemaps_countrymap_mapdata={
     NGA2870: {
       name: "Katsina",
       description: "10 Bus Operators",
-      color: "#E92D2D"
+      color: "#21C17A"
     },
     NGA2871: {
       name: "Sokoto"
