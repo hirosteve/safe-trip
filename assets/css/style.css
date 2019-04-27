@@ -1782,3 +1782,9 @@ min-width: 300px;
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0;
 }
+
+.seat-map-seat{
+  width:30px;
+  height:30px;
+  line-height: 30px;
+}
