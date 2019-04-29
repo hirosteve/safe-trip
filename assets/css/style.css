@@ -1898,3 +1898,18 @@ min-width: 300px;
 ul#selected-seats-no li{
   display: inline;
 }
+
+.seatmap-legend, .booking-details{
+  margin-top:20px;
+}
+
+ul.seat-legend li{
+  display:inline;
+
+}
+
+
+ul.seat-legend li span{
+  /* display:inline; */
+  color:#ababab;
+}
