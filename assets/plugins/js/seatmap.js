@@ -7,6 +7,17 @@ window.addEventListener('DOMContentLoaded', (e) => {
   const grandTotal = document.getElementById('grand-total');
   const discount = document.getElementById('discount');
 
+  const updateSeat = (arr, className) => {
+    for (let i = 0; i < arr.length; i++) {
+      const seatNo = document.getElementById(arr[i]);
+      seatNo.classList.remove('available-seat');
+      seatNo.classList.add(className);
+  }
+}
+
+updateSeat([1, 2, 4], 'reserved-seat');
+updateSeat([5, 3], 'booked-seat');
+
   const renderSeat = (seatLayout) => {
     const seatContainer = document.getElementsByClassName('seat-map-container')[0];
     seatContainer.insertAdjacentHTML('afterbegin', seatLayout);
@@ -15,13 +26,14 @@ window.addEventListener('DOMContentLoaded', (e) => {
   const addSeat = (seatNo) => {
     const li = document.createElement('li')
     let node = document.createTextNode(`Seat #${seatNo}, `);
-    li.id = seatNo;
+    li.id = `seat${seatNo}`;
     li.appendChild(node);
     seatContainer.appendChild(li);
   }
 
   const removeSeat = (seatNo) => {
-    const child = document.getElementById(seatNo);
+    const child = document.getElementById(`seat${seatNo}`);
+    console.log(child);
     seatContainer.removeChild(child);
   }
 
