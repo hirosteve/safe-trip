@@ -1792,9 +1792,13 @@ min-width: 300px;
 
 .seat-cell-bg{
   float: left;
-  margin-right:10px;
+  margin-right:5px;
 }
 
+#seat_59 .seat-cell-bg{
+  float: left;
+  margin-right:2px;
+}
 .seat-row{
   display: block;
   height: 40px;
@@ -1839,6 +1843,18 @@ min-width: 300px;
   /* background-size:contain; */
   /* padding: 15px 20px; */
   padding: 8px 12px;
+  height:30px;
+  width:30px;
+  color:#fff;
+
+
+}
+.seat-cell-bg.seat-cell {
+  /* background:url(../img/svg/selected.svg); */
+  /* background-repeat: no-repeat; */
+  /* background-size:contain; */
+  /* padding: 15px 20px; */
+  /* padding: 8px 12px; */
   height:30px;
   width:30px;
   color:#fff;
